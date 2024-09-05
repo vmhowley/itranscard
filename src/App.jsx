@@ -10,9 +10,9 @@ function App() {
 
   return (
     <Router>
-      <div className='flex gap-2'>
+      <div className='grid sm:flex'>
         <SideBar/>
-        <div className='p-4 pt-24'>
+        <div className='p-4 sm:pt-16'>
       <Routes>
         <Route path='/' element={<Home/>}/>
       </Routes>

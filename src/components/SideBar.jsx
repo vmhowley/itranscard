@@ -28,6 +28,8 @@ import {
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
  
+
+
 export default function Sidebar() {
   const [open, setOpen] = React.useState(true);
   const [navOpen, setNavOpen] = React.useState(true);
@@ -40,18 +42,20 @@ export default function Sidebar() {
   setNavOpen(!navOpen);
 }
   return (
-    <Card className={`h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl bg-black/90 shadow-white-900/5 transition-all  ${navOpen ? 'translate-x-0 fixed md:relative duration-500':'md:-translate-x-72 -translate-x-96 w-20 md:w-32  duration-500'} `}>
-      <button onClick={handleNav} className={`relative left-64 rounded-full text-white justify-center flex p-2 bg-gray-400 w-10 transition-all  duration-500 ${navOpen ? '-translate-x-10  ':'  translate-x-28  rotate-180  flex-row-reverse'}`}>{"-"}</button>
-      <div className="mb-2 flex items-center gap-4 p-4">
-        <img src="https://docs.material-tailwind.com/img/logo-ct-dark.png" alt="brand" className="h-8 w-8" />
-        <Typography variant="h5" color="white">
+<>
+    <Card className={`sm:h-[calc(100vh-2rem)]  w-screen sm:w-full sm:max-w-[275px] p-4 z-50 shadow-xl sm:bg-black/90 shadow-white-900/5 transition-all  md:sticky sm:relative  bg-foreground sm:translate-x-0 `}>
+      <button onClick={handleNav}>-</button>
+      <div className="flex items-center gap-4 p-4 mb-2">
+        <img src="https://docs.material-tailwind.com/img/logo-ct-dark.png" alt="brand" className="w-8 h-8 invert" />
+        <Typography variant="h5" color="red">
           IBSYSTEMS
         </Typography>
       </div>
-      <div className="p-2">
-        <Input icon={<MagnifyingGlassIcon className="h-5 w-5" />} label="Search" />
+      <div className={` transition-all ease-in-out duration-300 ${navOpen ? 'visible h-screen opacity-100 ':'invisible opacity-0 h-0 -translate-y-96  '}`}>
+      <div className="p-2 ">
+        <Input icon={<MagnifyingGlassIcon className="w-5 h-5" />} label="Search" />
       </div>
-      <List>
+      <List className="">
         <Accordion
           open={open === 1}
           icon={
@@ -62,9 +66,9 @@ export default function Sidebar() {
           }
         >
           <ListItem  className="p-0" selected={open === 1}>
-            <AccordionHeader onClick={() => handleOpen(1)} className="border-b-0 p-3">
+            <AccordionHeader onClick={() => handleOpen(1)} className="p-3 border-b-0">
               <ListItemPrefix>
-                <PresentationChartBarIcon color="white" className="h-5 w-5" />
+                <PresentationChartBarIcon color="white" className="w-5 h-5" />
               </ListItemPrefix>
               <Typography color="white" className="mr-auto font-normal">
                 Dashboard
@@ -75,19 +79,19 @@ export default function Sidebar() {
             <List className="p-0">
               <ListItem className='text-blue-gray-300'>
                 <ListItemPrefix>
-                  <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                  <ChevronRightIcon strokeWidth={3} className="w-5 h-3" />
                 </ListItemPrefix>
                 Analytics
               </ListItem>
               <ListItem className='text-blue-gray-300'>
                 <ListItemPrefix>
-                  <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                  <ChevronRightIcon strokeWidth={3} className="w-5 h-3" />
                 </ListItemPrefix>
                 Reporting
               </ListItem>
               <ListItem className='text-blue-gray-300'>
                 <ListItemPrefix>
-                  <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                  <ChevronRightIcon strokeWidth={3} className="w-5 h-3" />
                 </ListItemPrefix>
                 Projects
               </ListItem>
@@ -106,9 +110,9 @@ export default function Sidebar() {
         >
           
           <ListItem  className="p-0" selected={open === 2}>
-            <AccordionHeader onClick={() => handleOpen(2)} className="border-b-0 p-3">
+            <AccordionHeader onClick={() => handleOpen(2)} className="p-3 border-b-0">
               <ListItemPrefix>
-                <ShoppingBagIcon color="white" className="h-5 w-5" />
+                <ShoppingBagIcon color="white" className="w-5 h-5" />
               </ListItemPrefix>
               <Typography color="white" className="mr-auto font-normal">
                 E-Commerce
@@ -119,13 +123,13 @@ export default function Sidebar() {
             <List className="p-0">
               <ListItem className='text-blue-gray-300'>
                 <ListItemPrefix>
-                  <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                  <ChevronRightIcon strokeWidth={3} className="w-5 h-3" />
                 </ListItemPrefix>
                 Orders
               </ListItem>
               <ListItem className='text-blue-gray-300'>
                 <ListItemPrefix>
-                  <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                  <ChevronRightIcon strokeWidth={3} className="w-5 h-3" />
                 </ListItemPrefix>
                 Products
               </ListItem>
@@ -135,7 +139,7 @@ export default function Sidebar() {
         <hr className="my-2 border-blue-gray-300" />
         <ListItem className='text-white'>
           <ListItemPrefix>
-            <InboxIcon color="white" className="h-5 w-5" />
+            <InboxIcon color="white" className="w-5 h-5" />
           </ListItemPrefix>
           Inbox
           <ListItemSuffix>
@@ -144,25 +148,25 @@ export default function Sidebar() {
         </ListItem>
         <ListItem className='text-white'>
           <ListItemPrefix>
-            <UserCircleIcon color="white" className="h-5 w-5" />
+            <UserCircleIcon color="white" className="w-5 h-5" />
           </ListItemPrefix>
           Profile
         </ListItem>
         <ListItem className='text-white'>
           <ListItemPrefix>
-            <Cog6ToothIcon  color="white" className="h-5 w-5" />
+            <Cog6ToothIcon  color="white" className="w-5 h-5" />
           </ListItemPrefix>
           Settings
         </ListItem>
         <ListItem className='text-white'>
           <ListItemPrefix>
-            <PowerIcon color="white" className="h-5 w-5" />
+            <PowerIcon color="white" className="w-5 h-5" />
           </ListItemPrefix>
           Log Out
         </ListItem>
       </List>
       <Alert open={openAlert} className="mt-auto" onClose={() => setOpenAlert(false)}>
-        <CubeTransparentIcon className="mb-4 h-12 w-12" />
+        <CubeTransparentIcon className="w-12 h-12 mb-4" />
         <Typography variant="h6" className="mb-1">
           Upgrade to PRO
         </Typography>
@@ -170,7 +174,7 @@ export default function Sidebar() {
           Upgrade to Material Tailwind PRO and get even more components, plugins, advanced features
           and premium.
         </Typography>
-        <div className="mt-4 flex gap-3">
+        <div className="flex gap-3 mt-4">
           <Typography
             as="a"
             href="#"
@@ -185,6 +189,8 @@ export default function Sidebar() {
           </Typography>
         </div>
       </Alert>
+      </div>
     </Card>
+    </>
   );
 }
