@@ -29,15 +29,19 @@ import {
 } from "@heroicons/react/24/outline";
  
 export default function Sidebar() {
-  const [open, setOpen] = React.useState(0);
+  const [open, setOpen] = React.useState(true);
+  const [navOpen, setNavOpen] = React.useState(true);
   const [openAlert, setOpenAlert] = React.useState(true);
  
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
   };
- 
+ const handleNav = () => {
+  setNavOpen(!navOpen);
+}
   return (
-    <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl bg- shadow-white-900/5">
+    <Card className={`h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl bg-black/90 shadow-white-900/5 transition-all  ${navOpen ? 'translate-x-0 fixed md:relative duration-500':'md:-translate-x-72 -translate-x-96 w-20 md:w-32  duration-500'} `}>
+      <button onClick={handleNav} className={`relative left-64 rounded-full text-white justify-center flex p-2 bg-gray-400 w-10 transition-all  duration-500 ${navOpen ? '-translate-x-10  ':'  translate-x-28  rotate-180  flex-row-reverse'}`}>{"-"}</button>
       <div className="mb-2 flex items-center gap-4 p-4">
         <img src="https://docs.material-tailwind.com/img/logo-ct-dark.png" alt="brand" className="h-8 w-8" />
         <Typography variant="h5" color="white">
@@ -98,7 +102,9 @@ export default function Sidebar() {
               className={`mx-auto h-4 w-4 transition-transform ${open === 2 ? "rotate-180" : ""}`}
             />
           }
+          
         >
+          
           <ListItem  className="p-0" selected={open === 2}>
             <AccordionHeader onClick={() => handleOpen(2)} className="border-b-0 p-3">
               <ListItemPrefix>
