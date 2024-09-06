@@ -14,18 +14,18 @@ import {
   Input,
 } from "@material-tailwind/react";
 import {
+  ChevronRightIcon,
+  ChevronDownIcon,
+  CubeTransparentIcon,
+  MagnifyingGlassIcon,
   PresentationChartBarIcon,
   ShoppingBagIcon,
   UserCircleIcon,
   Cog6ToothIcon,
   InboxIcon,
   PowerIcon,
-} from "@heroicons/react/24/solid";
-import {
-  ChevronRightIcon,
-  ChevronDownIcon,
-  CubeTransparentIcon,
-  MagnifyingGlassIcon,
+  Bars3BottomRightIcon,
+  Bars3BottomLeftIcon,
 } from "@heroicons/react/24/outline";
  
 
@@ -41,10 +41,11 @@ export default function Sidebar() {
  const handleNav = () => {
   setNavOpen(!navOpen);
 }
+
   return (
 <>
-    <Card className={`sm:h-[calc(100vh-2rem)]  w-screen sm:w-full sm:max-w-[275px] p-4 z-50 shadow-xl sm:bg-black/90 shadow-white-900/5 transition-all  md:sticky sm:relative  bg-foreground sm:translate-x-0 `}>
-      <button onClick={handleNav}>-</button>
+    <Card className={`sm:h-[calc(100vh-2rem)]  rounded-none w-screen sm:w-full sm:max-w-[275px] p-4 z-50 shadow-xl  shadow-white-900/5 transition-all  md:sticky sm:relative dark:bg-black bg-white sm:translate-x-0 `}>
+      <button className={`fixed justify-center w-8 bg-gray-800 rounded right-4 top-8 sm:relative md:hidden duration-500 ${!navOpen ? 'rotate-180 ':'block'}`} onClick={handleNav}><Bars3BottomLeftIcon/></button>
       <div className="flex items-center gap-4 p-4 mb-2">
         <img src="https://docs.material-tailwind.com/img/logo-ct-dark.png" alt="brand" className="w-8 h-8 invert" />
         <Typography variant="h5" color="red">
@@ -61,35 +62,35 @@ export default function Sidebar() {
           icon={
             <ChevronDownIcon
               strokeWidth={2.5}
-              className={`mx-auto h-4 w-4 transition-transform ${open === 1 ? "rotate-180" : ""}`}
+              className={`mx-auto h-4 w-4 transition-transform  ${open === 1 ? "rotate-180" : ""}`}
             />
           }
         >
-          <ListItem  className="p-0" selected={open === 1}>
+          <ListItem  className="p-0 " selected={open === 1}>
             <AccordionHeader onClick={() => handleOpen(1)} className="p-3 border-b-0">
               <ListItemPrefix>
-                <PresentationChartBarIcon color="white" className="w-5 h-5" />
+                <PresentationChartBarIcon  className="w-5 h-5 text-white" />
               </ListItemPrefix>
-              <Typography color="white" className="mr-auto font-normal">
-                Dashboard
+              <Typography className="mr-auto font-normal dark:text-white">
+                Modulo Lealtad
               </Typography>
             </AccordionHeader>
           </ListItem>
           <AccordionBody className="py-1">
             <List className="p-0">
-              <ListItem className='text-blue-gray-300'>
+              <ListItem className='text-muted-foreground'>
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="w-5 h-3" />
                 </ListItemPrefix>
                 Analytics
               </ListItem>
-              <ListItem className='text-blue-gray-300'>
+              <ListItem className='text-muted-foreground'>
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="w-5 h-3" />
                 </ListItemPrefix>
                 Reporting
               </ListItem>
-              <ListItem className='text-blue-gray-300'>
+              <ListItem className='text-muted-foreground'>
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="w-5 h-3" />
                 </ListItemPrefix>
@@ -121,13 +122,13 @@ export default function Sidebar() {
           </ListItem>
           <AccordionBody className="py-1">
             <List className="p-0">
-              <ListItem className='text-blue-gray-300'>
+              <ListItem className='text-muted-foreground'>
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="w-5 h-3" />
                 </ListItemPrefix>
                 Orders
               </ListItem>
-              <ListItem className='text-blue-gray-300'>
+              <ListItem className='text-muted-foreground'>
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="w-5 h-3" />
                 </ListItemPrefix>
@@ -137,28 +138,28 @@ export default function Sidebar() {
           </AccordionBody>
         </Accordion>
         <hr className="my-2 border-blue-gray-300" />
-        <ListItem className='text-white'>
+        <ListItem className='text-muted-foreground'>
           <ListItemPrefix>
             <InboxIcon color="white" className="w-5 h-5" />
           </ListItemPrefix>
           Inbox
           <ListItemSuffix>
-            <Chip  value="14" size="sm" variant="ghost" color="white" className="rounded-full" />
+            <Chip  value="14" size="sm" variant="" color="white" className="rounded-full" />
           </ListItemSuffix>
         </ListItem>
-        <ListItem className='text-white'>
+        <ListItem className='text-muted-foreground'>
           <ListItemPrefix>
             <UserCircleIcon color="white" className="w-5 h-5" />
           </ListItemPrefix>
           Profile
         </ListItem>
-        <ListItem className='text-white'>
+        <ListItem className='text-muted-foreground'>
           <ListItemPrefix>
             <Cog6ToothIcon  color="white" className="w-5 h-5" />
           </ListItemPrefix>
           Settings
         </ListItem>
-        <ListItem className='text-white'>
+        <ListItem className='text-muted-foreground'>
           <ListItemPrefix>
             <PowerIcon color="white" className="w-5 h-5" />
           </ListItemPrefix>
@@ -168,11 +169,10 @@ export default function Sidebar() {
       <Alert open={openAlert} className="mt-auto" onClose={() => setOpenAlert(false)}>
         <CubeTransparentIcon className="w-12 h-12 mb-4" />
         <Typography variant="h6" className="mb-1">
-          Upgrade to PRO
+          Actualizar a Pro
         </Typography>
         <Typography variant="small" className="font-normal opacity-80">
-          Upgrade to Material Tailwind PRO and get even more components, plugins, advanced features
-          and premium.
+          Actualiza tu Licencia a ItransCard PRO para tener acceso a los demas Modulos de ItransCard
         </Typography>
         <div className="flex gap-3 mt-4">
           <Typography
@@ -182,10 +182,10 @@ export default function Sidebar() {
             className="font-medium opacity-80"
             onClick={() => setOpenAlert(false)}
           >
-            Dismiss
+            Cerrar
           </Typography>
           <Typography as="a" href="#" variant="small" className="font-medium">
-            Upgrade Now
+            Actualizar ahora
           </Typography>
         </div>
       </Alert>

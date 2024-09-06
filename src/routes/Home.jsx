@@ -4,10 +4,8 @@ function Home() {
   return (
     
     <div className='text-white '>
-    <h1 className='text-orange-700'>Hoasmdkjllk</h1>
-    <p>Hoasmdkjllk</p>
-    <p>Hoasmdkjllk</p>
-    <p>Hoasmdkjllk</p>
+    <h1 className=''>Esta es la pagina de inicio</h1>
+    
     </div>
     
   )
