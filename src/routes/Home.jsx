@@ -1,10 +1,9 @@
-import React from 'react'
 
 function Home() {
   return (
     
-    <div className='text-white '>
-    <h1 className=''>Esta es la pagina de inicio</h1>
+    <div className=''>
+    <h1 className='text-black dark:text-white'>Esta es la pagina de inicio</h1>
     
     </div>
     

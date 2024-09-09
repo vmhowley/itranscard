@@ -1,4 +1,4 @@
-import React from "react";
+import {useState} from "react";
 import {
   Card,
   Typography,
@@ -31,9 +31,9 @@ import {
 
 
 export default function Sidebar() {
-  const [open, setOpen] = React.useState(true);
-  const [navOpen, setNavOpen] = React.useState(true);
-  const [openAlert, setOpenAlert] = React.useState(true);
+  const [open, setOpen] = useState(true);
+  const [navOpen, setNavOpen] = useState(false);
+  const [openAlert, setOpenAlert] = useState(true);
  
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
@@ -44,7 +44,7 @@ export default function Sidebar() {
 
   return (
 <>
-    <Card className={`sm:h-[calc(100vh-2rem)]  rounded-none w-screen sm:w-full sm:max-w-[275px] p-4 z-50 shadow-xl  shadow-white-900/5 transition-all  md:sticky sm:relative dark:bg-black bg-white sm:translate-x-0 `}>
+    <Card className={`sm:h-[calc(100vh)]  rounded-none w-screen sm:w-full sm:max-w-[275px] p-4 z-50 shadow-xl  shadow-white-900/5 transition-all  md:sticky sm:relative dark:bg-black bg-white sm:translate-x-0 `}>
       <button className={`fixed justify-center w-8 bg-gray-800 rounded right-4 top-8 sm:relative md:hidden duration-500 ${!navOpen ? 'rotate-180 ':'block'}`} onClick={handleNav}><Bars3BottomLeftIcon/></button>
       <div className="flex items-center gap-4 p-4 mb-2">
         <img src="https://docs.material-tailwind.com/img/logo-ct-dark.png" alt="brand" className="w-8 h-8 invert" />
@@ -52,7 +52,7 @@ export default function Sidebar() {
           IBSYSTEMS
         </Typography>
       </div>
-      <div className={` transition-all ease-in-out duration-300 ${navOpen ? 'visible h-screen opacity-100 ':'invisible opacity-0 h-0 -translate-y-96  '}`}>
+      <div className={` transition-all ease-in-out duration-300 ${navOpen ? 'visible h-screen opacity-100 ':'invisible opacity-0 h-0 -translate-y-96 md:visible md:opacity-100 md:translate-y-0'}`}>
       <div className="p-2 ">
         <Input icon={<MagnifyingGlassIcon className="w-5 h-5" />} label="Search" />
       </div>
@@ -69,9 +69,9 @@ export default function Sidebar() {
           <ListItem  className="p-0 " selected={open === 1}>
             <AccordionHeader onClick={() => handleOpen(1)} className="p-3 border-b-0">
               <ListItemPrefix>
-                <PresentationChartBarIcon  className="w-5 h-5 text-white" />
+                <PresentationChartBarIcon color="red" className="w-5 h-5" />
               </ListItemPrefix>
-              <Typography className="mr-auto font-normal dark:text-white">
+              <Typography className="mr-auto font-semibold text-black dark:text-white">
                 Modulo Lealtad
               </Typography>
             </AccordionHeader>
@@ -113,9 +113,9 @@ export default function Sidebar() {
           <ListItem  className="p-0" selected={open === 2}>
             <AccordionHeader onClick={() => handleOpen(2)} className="p-3 border-b-0">
               <ListItemPrefix>
-                <ShoppingBagIcon color="white" className="w-5 h-5" />
+                <ShoppingBagIcon  color="red" className="w-5 h-5 " />
               </ListItemPrefix>
-              <Typography color="white" className="mr-auto font-normal">
+              <Typography  className="mr-auto font-semibold text-black dark:text-white">
                 E-Commerce
               </Typography>
             </AccordionHeader>
@@ -140,28 +140,28 @@ export default function Sidebar() {
         <hr className="my-2 border-blue-gray-300" />
         <ListItem className='text-muted-foreground'>
           <ListItemPrefix>
-            <InboxIcon color="white" className="w-5 h-5" />
+            <InboxIcon color="red" className="w-5 h-5" />
           </ListItemPrefix>
           Inbox
           <ListItemSuffix>
-            <Chip  value="14" size="sm" variant="" color="white" className="rounded-full" />
+            <Chip  value="14" size="sm"  color="red" className="rounded-full" />
           </ListItemSuffix>
         </ListItem>
         <ListItem className='text-muted-foreground'>
           <ListItemPrefix>
-            <UserCircleIcon color="white" className="w-5 h-5" />
+            <UserCircleIcon color="red" className="w-5 h-5" />
           </ListItemPrefix>
           Profile
         </ListItem>
         <ListItem className='text-muted-foreground'>
           <ListItemPrefix>
-            <Cog6ToothIcon  color="white" className="w-5 h-5" />
+            <Cog6ToothIcon  color="red" className="w-5 h-5" />
           </ListItemPrefix>
           Settings
         </ListItem>
         <ListItem className='text-muted-foreground'>
           <ListItemPrefix>
-            <PowerIcon color="white" className="w-5 h-5" />
+            <PowerIcon color="red" className="w-5 h-5" />
           </ListItemPrefix>
           Log Out
         </ListItem>
