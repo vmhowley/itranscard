@@ -24,7 +24,6 @@ import {
   Cog6ToothIcon,
   InboxIcon,
   PowerIcon,
-  Bars3BottomRightIcon,
   Bars3BottomLeftIcon,
 } from "@heroicons/react/24/outline";
  
@@ -44,8 +43,8 @@ export default function Sidebar() {
 
   return (
 <>
-    <Card className={`sm:h-[calc(100vh)]  rounded-none w-screen sm:w-full sm:max-w-[275px] p-4 z-50 shadow-xl  shadow-white-900/5 transition-all  md:sticky sm:relative dark:bg-black bg-white sm:translate-x-0 `}>
-      <button className={`fixed justify-center w-8 bg-gray-800 rounded right-4 top-8 sm:relative md:hidden duration-500 ${!navOpen ? 'rotate-180 ':'block'}`} onClick={handleNav}><Bars3BottomLeftIcon/></button>
+    <Card className={`sm:h-[calc(100vh)]  rounded-none w-screen sm:w-full sm:max-w-[275px]  z-50 shadow-xl  shadow-white-900/5 transition-all  md:sticky sm:relative bg-background sm:translate-x-0 `}>
+      <button className={`fixed justify-center w-8 bg-card rounded right-4 top-4 sm:relative md:hidden duration-500 ${!navOpen ? 'rotate-180 ':'block'}`} onClick={handleNav}><Bars3BottomLeftIcon/></button>
       <div className="flex items-center gap-4 p-4 mb-2">
         <img src="https://docs.material-tailwind.com/img/logo-ct-dark.png" alt="brand" className="w-8 h-8 invert" />
         <Typography variant="h5" color="red">
