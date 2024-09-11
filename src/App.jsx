@@ -1,8 +1,5 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
 import SideBar from './components/SideBar'
 import Home from './routes/Home'
 import AuthProvider from './hooks/Authprovider'
@@ -21,10 +18,12 @@ function App() {
         <div className='p-5 sm:pt-40'>
         <BreadCrumb/>
       <Routes > 
-        <Route path='login' element={<Login/>}/>
+        <Route path='/login' element={<Login/>}/>
         <Route element={<PrivateRoute/>}> 
-        <Route path='Dashboard' element={<Home/>}/>
+        <Route path='/' element={<Home/>}/>
+        <Route path='dashboard' element={<Home/>}/>
         </Route>
+        <Route path='*' element={<div className='bg-white inset-0 fixed z-50 flex place-content-center place-items-center  '> <div className='bg-black text-red-900 font-bold '><Link to={'/'}>Ir Inicio</Link></div></div>}/>
       </Routes>
         </div>
       </div>

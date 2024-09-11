@@ -25,7 +25,9 @@ import {
   InboxIcon,
   PowerIcon,
   Bars3BottomLeftIcon,
+  HomeModernIcon,
 } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
  
 
 
@@ -43,7 +45,7 @@ export default function Sidebar() {
 
   return (
 <>
-    <Card className={`sm:h-[calc(100vh)]  rounded-none w-screen sm:w-full sm:max-w-[275px]  z-50 shadow-xl  shadow-white-900/5 transition-all  md:sticky sm:relative bg-background sm:translate-x-0 `}>
+    <Card className={`sm:h-[calc(100vh)] p-2 rounded-none w-screen sm:w-full sm:max-w-[275px] z-50 shadow-xl  shadow-white-900/5 transition-all  md:sticky sm:relative bg-background sm:translate-x-0 `}>
       <button className={`fixed justify-center w-8 bg-card rounded right-4 top-4 sm:relative md:hidden duration-500 ${!navOpen ? 'rotate-180 ':'block'}`} onClick={handleNav}><Bars3BottomLeftIcon/></button>
       <div className="flex items-center gap-4 p-4 mb-2">
         <img src="https://docs.material-tailwind.com/img/logo-ct-dark.png" alt="brand" className="w-8 h-8 invert" />
@@ -65,7 +67,16 @@ export default function Sidebar() {
             />
           }
         >
+          <ListItem className="font-semibold text-black" >
+          <ListItemPrefix>
+            <HomeModernIcon color="red" className="w-5 h-5" />
+          </ListItemPrefix>
+          <Link to={'/'}>
+          Home
+          </Link>
+          </ListItem>
           <ListItem  className="p-0 " selected={open === 1}>
+            
             <AccordionHeader onClick={() => handleOpen(1)} className="p-3 border-b-0">
               <ListItemPrefix>
                 <PresentationChartBarIcon color="red" className="w-5 h-5" />
