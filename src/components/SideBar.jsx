@@ -70,7 +70,7 @@ export default function Sidebar() {
               <ListItemPrefix>
                 <PresentationChartBarIcon color="red" className="w-5 h-5" />
               </ListItemPrefix>
-              <Typography className="mr-auto font-semibold text-black dark:text-white">
+              <Typography className="mr-auto font-semibold text-black dark:text-foreground">
                 Modulo Lealtad
               </Typography>
             </AccordionHeader>
