@@ -45,15 +45,12 @@ export default function Sidebar() {
 
   return (
 <>
-    <Card className={`sm:h-[calc(100vh)] p-2 rounded-none w-screen sm:w-full sm:max-w-[275px] z-50 shadow-xl  shadow-white-900/5 transition-all  md:sticky sm:relative bg-background sm:translate-x-0 `}>
-      <button className={`fixed justify-center w-8 bg-card rounded right-4 top-4 sm:relative md:hidden duration-500 ${!navOpen ? 'rotate-180 ':'block'}`} onClick={handleNav}><Bars3BottomLeftIcon/></button>
+    <Card className={` sticky  p-2 rounded-none w-screen sm:h-[calc(100%)] sm:w-full sm:max-w-[275px] z-50 shadow-xl  shadow-white-900/5 transition-all  md:sticky sm:relative bg-background sm:translate-x-0 `}>
+      <button className={`absolute justify-center w-8 bg-card rounded right-4 top-4 sm:relative md:hidden duration-500 ${!navOpen ? 'rotate-180 ':'block'}`} onClick={handleNav}><Bars3BottomLeftIcon/></button>
       <div className="flex items-center gap-4 p-4 mb-2">
-        <img src="https://docs.material-tailwind.com/img/logo-ct-dark.png" alt="brand" className="w-8 h-8 invert" />
-        <Typography variant="h5" color="red">
-          IBSYSTEMS
-        </Typography>
+        <img src="https://ibsystems.com.do/assets/images/logo-light.png" alt="brand" className="" />
       </div>
-      <div className={` transition-all ease-in-out duration-300 ${navOpen ? 'visible h-screen opacity-100 ':'invisible opacity-0 h-0 -translate-y-96 md:visible md:opacity-100 md:translate-y-0'}`}>
+      <div className={` transition-all ease-in-out duration-300  ${navOpen ? '   opacity-100 ':'opacity-0  sm:h-screen h-0 -translate-x-96  md:opacity-100 md:translate-x-0'}`}>
       <div className="p-2 ">
         <Input icon={<MagnifyingGlassIcon className="w-5 h-5" />} label="Search" />
       </div>
@@ -67,44 +64,96 @@ export default function Sidebar() {
             />
           }
         >
-          <ListItem className="font-semibold text-black" >
+          <Link  to={'/'}>
+          <ListItem onClick={handleNav} className="font-semibold text-foreground" >
           <ListItemPrefix>
             <HomeModernIcon color="red" className="w-5 h-5" />
           </ListItemPrefix>
-          <Link to={'/'}>
           Home
-          </Link>
           </ListItem>
+          </Link>
           <ListItem  className="p-0 " selected={open === 1}>
             
-            <AccordionHeader onClick={() => handleOpen(1)} className="p-3 border-b-0">
+            <AccordionHeader onClick={() => handleOpen(1)} className="p-3 border-b-0 text-foreground">
               <ListItemPrefix>
                 <PresentationChartBarIcon color="red" className="w-5 h-5" />
               </ListItemPrefix>
-              <Typography className="mr-auto font-semibold text-black dark:text-foreground">
-                Modulo Lealtad
+              <Typography className="mr-auto font-semibold">
+                Modulo Seguridad
               </Typography>
             </AccordionHeader>
           </ListItem>
           <AccordionBody className="py-1">
             <List className="p-0">
+            <Link to={'mod_lealtad'}>
               <ListItem className='text-muted-foreground'>
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="w-5 h-3" />
                 </ListItemPrefix>
-                Analytics
+                Modulo Lealtad
+              </ListItem>
+            </Link>
+            <Link to={'embozado'}>
+              <ListItem className='text-muted-foreground'>
+                <ListItemPrefix>
+                  <ChevronRightIcon strokeWidth={3} className="w-5 h-3" />
+                </ListItemPrefix>
+                Sistema de Embozado
+              </ListItem>
+            </Link>
+              <ListItem className='text-muted-foreground'>
+                <ListItemPrefix>
+                  <ChevronRightIcon strokeWidth={3} className="w-5 h-3" />
+                </ListItemPrefix>
+                Sub-agentes
               </ListItem>
               <ListItem className='text-muted-foreground'>
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="w-5 h-3" />
                 </ListItemPrefix>
-                Reporting
+                Modulo Caja
               </ListItem>
               <ListItem className='text-muted-foreground'>
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="w-5 h-3" />
                 </ListItemPrefix>
-                Projects
+                Castigos y Descargos
+              </ListItem>
+              <ListItem className='text-muted-foreground'>
+                <ListItemPrefix>
+                  <ChevronRightIcon strokeWidth={3} className="w-5 h-3" />
+                </ListItemPrefix>
+                Pago Tarjeta
+              </ListItem>
+              <ListItem className='text-muted-foreground'>
+                <ListItemPrefix>
+                  <ChevronRightIcon strokeWidth={3} className="w-5 h-3" />
+                </ListItemPrefix>
+                Pago Prestamos
+              </ListItem>
+              <ListItem className='text-muted-foreground'>
+                <ListItemPrefix>
+                  <ChevronRightIcon strokeWidth={3} className="w-5 h-3" />
+                </ListItemPrefix>
+                Codigos de Prefijos
+              </ListItem>
+              <ListItem className='text-muted-foreground'>
+                <ListItemPrefix>
+                  <ChevronRightIcon strokeWidth={3} className="w-5 h-3" />
+                </ListItemPrefix>
+                Cheques Devueltos
+              </ListItem>
+              <ListItem className='text-muted-foreground'>
+                <ListItemPrefix>
+                  <ChevronRightIcon strokeWidth={3} className="w-5 h-3" />
+                </ListItemPrefix>
+                Cheques en transito
+              </ListItem>
+              <ListItem className='text-muted-foreground'>
+                <ListItemPrefix>
+                  <ChevronRightIcon strokeWidth={3} className="w-5 h-3" />
+                </ListItemPrefix>
+                Conexion Autorizador
               </ListItem>
             </List>
           </AccordionBody>
@@ -121,11 +170,11 @@ export default function Sidebar() {
         >
           
           <ListItem  className="p-0" selected={open === 2}>
-            <AccordionHeader onClick={() => handleOpen(2)} className="p-3 border-b-0">
+            <AccordionHeader onClick={() => handleOpen(2)} className="p-3 border-b-0 text-foreground">
               <ListItemPrefix>
                 <ShoppingBagIcon  color="red" className="w-5 h-5 " />
               </ListItemPrefix>
-              <Typography  className="mr-auto font-semibold text-black dark:text-white">
+              <Typography  className="mr-auto font-semibold ">
                 E-Commerce
               </Typography>
             </AccordionHeader>

@@ -9,39 +9,29 @@ import {
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
-
-function BreadCrumb() {
+import { HomeIcon } from '@heroicons/react/24/outline';
+import { Home } from 'lucide-react';
+function BreadCrumb({path1,path2,path3}) {
   const {pathname} = useLocation();
-  const [path1, setPath1] = useState('Modulo Lealtad')
-  const [path2, setPath2] = useState('Parametros')
-  const [path3, setPath3] = useState('')
-
-
-  useEffect(()=>{
-    if (pathname === '/'){
-      setPath1('home')
-    }else{
-      setPath1(pathname )
-    }
-  },[])
-
+  const myArray = pathname.split("/")
+  
   return (
-    <Breadcrumb className='fixed hidden top-10 md:flex p-4'>
+    <Breadcrumb className='hidden pb-6 md:flex '>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink asChild>
-            <Link href='#'>{path1}</Link>
+          <BreadcrumbLink className='capitalize' asChild>
+            <Link to='/'><HomeIcon className='w-4'/></Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
-        <BreadcrumbSeparator className={`${path2 ? '' : 'hidden'}`} />
+        <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink asChild>
+          <BreadcrumbLink className='capitalize' asChild>
             <Link href='#'>{path2}</Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
-        <BreadcrumbSeparator className={`${path3 ? '' : 'hidden'}`} />
-        <BreadcrumbItem>
-          <BreadcrumbPage>{path3}</BreadcrumbPage>
+        <BreadcrumbSeparator className={`${path2 ? '' : 'hidden'}`} />
+        <BreadcrumbItem className='capitalize'>
+          <BreadcrumbPage>{myArray[3]}</BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>
