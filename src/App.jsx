@@ -17,9 +17,9 @@ function App() {
     
     <Router>
       <AuthProvider>
-      <div className='grid sm:flex'>
+      
         <SideBar/>
-        <div className='p-5 sm:p-8 '>
+        <div className='sm:ml-[276px] flex flex-col  p-5'>
       <Routes > 
         <Route path='/login' element={<Login/>}/>
         {/* ----------------------------==Rutas privadas==---------------------------------- */}
@@ -28,6 +28,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/mod_lealtad' element={<Lealtad/>}/>
         <Route path='/embozado' element={<Embozado/>}/>
+        <Route path='/embozado/consultas' element={<Embozado/>}/>
         
         {/*-----------------------------------== Fin de rutas Privadas==-------------------- */}
         
@@ -39,7 +40,6 @@ function App() {
         {/*----------------------------------==Fin de Otras Rutas==----------------------------- */}
       </Routes>
         </div>
-      </div>
     </AuthProvider>
     </Router>
   )

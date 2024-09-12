@@ -45,12 +45,12 @@ export default function Sidebar() {
 
   return (
 <>
-    <Card className={` sticky  p-2 rounded-none w-screen sm:h-[calc(100%)] sm:w-full sm:max-w-[275px] z-50 shadow-xl  shadow-white-900/5 transition-all  md:sticky sm:relative bg-background sm:translate-x-0 `}>
+    <Card className={`sticky  sm:fixed h-[calc(100%-2rem)] rounded-none    sm:max-w-[275px] z-50 shadow-xl  shadow-white-900/5 transition-all   bg-background sm:translate-x-0 `}>
       <button className={`absolute justify-center w-8 bg-card rounded right-4 top-4 sm:relative md:hidden duration-500 ${!navOpen ? 'rotate-180 ':'block'}`} onClick={handleNav}><Bars3BottomLeftIcon/></button>
       <div className="flex items-center gap-4 p-4 mb-2">
         <img src="https://ibsystems.com.do/assets/images/logo-light.png" alt="brand" className="" />
       </div>
-      <div className={` transition-all ease-in-out duration-300  ${navOpen ? '   opacity-100 ':'opacity-0  sm:h-screen h-0 -translate-x-96  md:opacity-100 md:translate-x-0'}`}>
+      <div className={` transition-all ease-in-out duration-300  ${navOpen ? '   opacity-100  h-screen':'opacity-0  sm:h-screen h-0 -translate-x-96  md:opacity-100 md:translate-x-0'}`}>
       <div className="p-2 ">
         <Input icon={<MagnifyingGlassIcon className="w-5 h-5" />} label="Search" />
       </div>
