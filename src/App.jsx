@@ -9,6 +9,7 @@ import BreadCrumb from './components/BreadCrumb'
 import NotFound from './components/NotFound'
 import Lealtad from './routes/Lealtad'
 import Embozado from './routes/Embozado'
+import ConsultaEmbozado from './components/ConsultaEmbozado'
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
       <AuthProvider>
       
         <SideBar/>
-        <div className='sm:ml-[276px] flex flex-col  p-5'>
+        <div className='inset-0 gap-3 p-5 pt-10 overflow-auto xl:fixed md:pl-72'>
       <Routes > 
         <Route path='/login' element={<Login/>}/>
         {/* ----------------------------==Rutas privadas==---------------------------------- */}
@@ -28,7 +29,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/mod_lealtad' element={<Lealtad/>}/>
         <Route path='/embozado' element={<Embozado/>}/>
-        <Route path='/embozado/consultas' element={<Embozado/>}/>
+        <Route path='/embozado/consultas' element={<ConsultaEmbozado/>}/>
         
         {/*-----------------------------------== Fin de rutas Privadas==-------------------- */}
         
