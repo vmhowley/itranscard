@@ -20,7 +20,7 @@ function App() {
       <AuthProvider>
       
         <SideBar/>
-        <div className='inset-0 gap-3 p-5 pt-10 overflow-auto xl:fixed md:pl-72'>
+        <div className='inset-0 gap-3 p-5 pt-20 overflow-auto xl:fixed md:pl-72'>
       <Routes > 
         <Route path='/login' element={<Login/>}/>
         {/* ----------------------------==Rutas privadas==---------------------------------- */}

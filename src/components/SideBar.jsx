@@ -32,8 +32,13 @@ import { Link } from "react-router-dom";
 export default function Sidebar() {
   const [open, setOpen] = useState(true);
   const [navOpen, setNavOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [openAlert, setOpenAlert] = useState(true);
  
+  const handleMenu = () => {
+    setMenuOpen(!menuOpen);
+
+  }
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
   };
@@ -43,10 +48,10 @@ export default function Sidebar() {
 
   return (
 <>
-    <Card className={`sticky md:overflow-y-auto md:fixed h-[calc(100%)] rounded-none md:max-w-[275px] z-50 shadow-xl  shadow-white-900/5 transition-all   bg-background md:translate-x-0 `}>
+    <Card className={`sticky md:overflow-y-auto md:fixed h-[calc(100%)] sm:rounded-none md:max-w-[275px] z-50 shadow  shadow-white-900/5 transition-all   bg-background md:translate-x-0 `}>
       <button className={`absolute justify-center w-8 bg-card rounded right-4 top-4 md:relative md:hidden duration-500 ${!navOpen ? 'rotate-180 ':'block'}`} onClick={handleNav}><Bars3BottomLeftIcon/></button>
       <div className="flex items-center gap-4 p-4 mb-2">
-        <img src="https://ibsystems.com.do/assets/images/logo-light.png" alt="brand" className="" />
+        <img src="https://ibsystems.com.do/assets/images/logo-light.png" alt="brand" className="h-14" />
       </div>
       <div className={` transition-all ease-in-out duration-300  ${navOpen ? '   opacity-100  h-screen':'opacity-0 h-0 -translate-x-96  md:opacity-100 md:translate-x-0'}`}>
       <div className="p-2 ">
@@ -246,6 +251,20 @@ export default function Sidebar() {
       </Alert>
       </div>
     </Card>
+    <div className="fixed z-40 sm:flex hidden justify-between w-full pl-[280px] p-2 text-foreground font-semibold bg-background border">
+      <ul className="flex items-center justify-center w-full gap-6">
+        <li>Documentacion</li>
+        <li>Soporte</li>
+        <li>Documentacion</li>
+      </ul>
+      <div className="flex items-center gap-2">
+          <img className="rounded-full w-14" src="https://ai-avatar-generator.com/avatars/1930.jpg" alt="avatar" />
+        <button onClick={handleMenu} className="cursor-pointer">
+          <ChevronDownIcon
+              strokeWidth={2.5}
+              className={`mx-auto h-4 w-4 transition-transform`} /></button>
+      </div>
+    </div>
     </>
   );
 }
