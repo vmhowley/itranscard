@@ -10,17 +10,20 @@ import NotFound from './components/NotFound'
 import Lealtad from './routes/Lealtad'
 import Embozado from './routes/Embozado'
 import ConsultaEmbozado from './components/ConsultaEmbozado'
-
+import { AnimatePresence } from 'framer-motion'
+import SubAgente from './routes/SubAgente'
 
 function App() {
 
   return (
     
     <Router>
+      <AnimatePresence>
+        
       <AuthProvider>
       
         <SideBar/>
-        <div className='inset-0 gap-3 p-5 pt-20 overflow-auto xl:fixed md:pl-80'>
+        <div className='inset-0 gap-3 p-5 overflow-auto xl:fixed md:pl-80 h-[calc(100%-2rem)]'>
       <Routes > 
         <Route path='/login' element={<Login/>}/>
         {/* ----------------------------==Rutas privadas==---------------------------------- */}
@@ -29,6 +32,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/mod_lealtad' element={<Lealtad/>}/>
         <Route path='/embozado' element={<Embozado/>}/>
+        <Route path='/subagente' element={<SubAgente/>}/>
         <Route path='/embozado/consultas' element={<ConsultaEmbozado/>}/>
         
         {/*-----------------------------------== Fin de rutas Privadas==-------------------- */}
@@ -42,6 +46,7 @@ function App() {
       </Routes>
         </div>
     </AuthProvider>
+      </AnimatePresence>
     </Router>
   )
 }
