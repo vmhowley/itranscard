@@ -11,10 +11,10 @@ import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import { HomeIcon } from '@heroicons/react/24/outline';
 import { Home } from 'lucide-react';
-function BreadCrumb({path1,path2,path3}) {
+function BreadCrumb({crumbsData}) {
   const {pathname} = useLocation();
-  const myArray = pathname.split("/")
-  
+  const data = crumbsData
+  console.log(data)
   return (
     <Breadcrumb className='hidden pb-6 md:flex '>
       <BreadcrumbList>
@@ -24,15 +24,14 @@ function BreadCrumb({path1,path2,path3}) {
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
-        <BreadcrumbItem>
+      {crumbsData.map((data)=> 
+        <BreadcrumbItem key={data.id}>
           <BreadcrumbLink className='capitalize' asChild>
-            <Link href='#'>{path2}</Link>
+            <Link href='#'>{data.name}</Link>
           </BreadcrumbLink>
+          <BreadcrumbSeparator className={`${data.name ? 'flex' : 'hidden'}`}/>
         </BreadcrumbItem>
-        <BreadcrumbSeparator className={`${path2 ? '' : 'hidden'}`} />
-        <BreadcrumbItem className='capitalize'>
-          <BreadcrumbPage>{myArray[3]}</BreadcrumbPage>
-        </BreadcrumbItem>
+      )}
       </BreadcrumbList>
     </Breadcrumb>
   )

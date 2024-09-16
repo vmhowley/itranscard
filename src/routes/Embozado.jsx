@@ -5,6 +5,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function Embozado() {
+  const crumbsData = [
+    {
+        id:"1",
+        name:"Sistema de Embozado",
+    },
+]
+
   const CardsData = [
     {
       id: 1,
@@ -23,7 +30,7 @@ function Embozado() {
 
   return (
     <>
-      <BreadCrumb path2={'Sistema de Embozado'} />
+      <BreadCrumb crumbsData={crumbsData}/>
       <Cards CardsData={CardsData} />
     </>
   )

@@ -48,27 +48,27 @@ export default function Sidebar() {
 
   return (
 <>
-    <Card className={`sticky md:overflow-y-auto md:fixed h-[calc(100%)] sm:rounded-none md:max-w-[275px] z-50 shadow  shadow-white-900/5 transition-all   bg-background md:translate-x-0 `}>
+    <Card className={`sticky md:overflow-y-auto md:fixed h-[calc(100%)]  sm:rounded-none  md:max-w-[220px] lg:max-w-[280px] z-50 shadow  shadow-white-900/5 transition-all   bg-muted/40 md:translate-x-0 `}>
       <button className={`absolute justify-center w-8 bg-card rounded right-4 top-4 md:relative md:hidden duration-500 ${!navOpen ? 'rotate-180 ':'block'}`} onClick={handleNav}><Bars3BottomLeftIcon/></button>
-      <div className="flex items-center gap-4 p-4 mb-2">
-        <img src="https://ibsystems.com.do/assets/images/logo-light.png" alt="brand" className="h-14" />
+      <div className="flex items-center gap-4 p-4 pb-5 mb-2">
+        <img src="https://ibsystems.com.do/assets/images/logo-light.png" alt="brand" className="" />
       </div>
       <div className={` transition-all ease-in-out duration-300  ${navOpen ? '   opacity-100  h-screen':'opacity-0 h-0 -translate-x-96  md:opacity-100 md:translate-x-0'}`}>
       <div className="p-2 ">
         <Input icon={<MagnifyingGlassIcon className="w-5 h-5" />} label="Search" />
       </div>
-      <List className="">
+      <List className="text-sm">
         <Accordion
           open={open === 1}
           icon={
             <ChevronDownIcon
               strokeWidth={2.5}
-              className={`mx-auto h-4 w-4 transition-transform  ${open === 1 ? "rotate-180" : ""}`}
+              className={`mx-auto h-4 w-4 transition-transform   ${open === 1 ? "rotate-180" : ""}`}
             />
           }
         >
           <Link  to={'/'}>
-          <ListItem onClick={handleNav} className="font-semibold text-foreground" >
+          <ListItem onClick={handleNav} className="text-sm font-semibold text-muted-foreground " >
           <ListItemPrefix>
             <HomeModernIcon  className="w-5 h-5 text-primary" />
           </ListItemPrefix>
@@ -77,11 +77,11 @@ export default function Sidebar() {
           </Link>
           <ListItem  className="p-0 " selected={open === 1}>
             
-            <AccordionHeader onClick={() => handleOpen(1)} className="p-3 border-b-0 text-foreground">
+            <AccordionHeader onClick={() => handleOpen(1)} className="p-3 border-b-0 text-muted-foreground">
               <ListItemPrefix>
                 <PresentationChartBarIcon  className="w-5 h-5 text-primary" />
               </ListItemPrefix>
-              <Typography className="mr-auto font-semibold">
+              <Typography className="mr-auto text-sm font-semibold text-muted-foreground">
                 Modulo Seguridad
               </Typography>
             </AccordionHeader>
@@ -89,7 +89,7 @@ export default function Sidebar() {
           <AccordionBody className="py-1">
             <List className="p-0">
             <Link to={'mod_lealtad'}>
-              <ListItem className='text-muted-foreground'>
+              <ListItem className='text-sm text-muted-foreground'>
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="w-5 h-3" />
                 </ListItemPrefix>
@@ -171,11 +171,11 @@ export default function Sidebar() {
           } 
         >
           <ListItem  className="p-0" selected={open === 2}>
-            <AccordionHeader onClick={() => handleOpen(2)} className="p-3 border-b-0 text-foreground">
+            <AccordionHeader onClick={() => handleOpen(2)} className="p-3 border-b-0 text-muted-foreground">
               <ListItemPrefix>
                 <ShoppingBagIcon   className="w-5 h-5 text-primary " />
               </ListItemPrefix>
-              <Typography  className="mr-auto font-semibold ">
+              <Typography  className="mr-auto text-sm font-semibold ">
                 E-Commerce
               </Typography>
             </AccordionHeader>
@@ -226,7 +226,7 @@ export default function Sidebar() {
           Log Out
         </ListItem>
       </List>
-      <Alert open={openAlert} className="mt-auto" onClose={() => setOpenAlert(false)}>
+      {/* <Alert open={openAlert} className="mt-auto" onClose={() => setOpenAlert(false)}>
         <CubeTransparentIcon className="w-12 h-12 mb-4" />
         <Typography variant="h6" className="mb-1">
           Actualizar a Pro
@@ -248,10 +248,10 @@ export default function Sidebar() {
             Actualizar ahora
           </Typography>
         </div>
-      </Alert>
+      </Alert> */}
       </div>
     </Card>
-    <div className="fixed z-40 sm:flex hidden justify-between w-full pl-[280px] p-2 text-foreground font-semibold bg-background border">
+    {/* <div className="fixed z-40 sm:flex hidden justify-between w-full pl-[280px] p-2 text-foreground font-semibold bg-muted/40 border">
       <ul className="flex items-center justify-center w-full gap-6">
         <li>Documentacion</li>
         <li>Soporte</li>
@@ -264,7 +264,7 @@ export default function Sidebar() {
               strokeWidth={2.5}
               className={`mx-auto h-4 w-4 transition-transform`} /></button>
       </div>
-    </div>
+    </div> */}
     </>
   );
 }

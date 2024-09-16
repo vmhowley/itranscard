@@ -5,7 +5,11 @@ function ConsultaEmbozado() {
     const crumbsData = [
         {
             id:"1",
-            name:"lol",
+            name:"Sistema de Embozado",
+        },
+        {
+            id:"2",
+            name:"Consultas",
         }
     ]
   return (
