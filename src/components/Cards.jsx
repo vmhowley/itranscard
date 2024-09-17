@@ -8,7 +8,7 @@ function Cards({CardsData, ubi}) {
  console.log(ubi)
   return (
     <>
-    <div className={`grid sm:h-[calc(90%-2rem)]  xl:flex-wrap gap-6 font-bold ${ubi === 'vertical' ? 'xl:grid' : 'xl:flex'} `}>
+    <div className={`grid xl:flex-wrap gap-6 font-bold ${ubi === 'vertical' ? 'xl:grid' : 'xl:flex'} `}>
       {CardsData.map((card)=>
         <Link   key={card.id} to={card.path}>
         <Button 

@@ -16,7 +16,7 @@ function BreadCrumb({crumbsData}) {
   const data = crumbsData
   console.log(data)
   return (
-    <Breadcrumb className='hidden pb-6 md:flex '>
+    <Breadcrumb className='fixed z-50 hidden pb-6 left-80 top-6 md:flex'>
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink className='capitalize' asChild>

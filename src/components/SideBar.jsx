@@ -48,23 +48,24 @@ export default function Sidebar() {
   return (
     <>
       <Card
-        className={`sticky md:overflow-y-auto md:fixed h-[calc(100%)]  sm:rounded-none  md:max-w-[220px] lg:max-w-[280px] z-50 shadow  shadow-white-900/5 transition-all   bg-background md:translate-x-0 `}
+        className={`fixed w-full md:overflow-y-auto md:fixed md:h-[calc(100%)]  sm:rounded-none  md:max-w-[220px] lg:max-w-[280px] z-50 shadow  shadow-white-900/5 transition-all   bg-background md:translate-x-0 `}
       >
+        <div className={`flex justify-around items-center flex-row-reverse`} >
+
         <button
-          className={`absolute justify-center w-8 bg-card rounded right-4 top-4 md:relative md:hidden duration-500 ${
-            !navOpen ? 'rotate-180 ' : 'block'
-          }`}
+          className={` justify-center w-10 h-10  rounded  md:relative md:hidden duration-500 transition-all ease-in-out `}
           onClick={handleNav}
-        >
+          >
           <Bars3BottomLeftIcon />
         </button>
-        <div className='flex items-center gap-4 p-4 pb-5 mb-2'>
+        <div className={`flex gap-4 p-4 pb-5 mb-2`}>
           <img
             src='https://ibsystems.com.do/assets/images/logo-light.png'
             alt='brand'
-            className=''
-          />
+            className='w-64'
+            />
         </div>
+            </div>
         <div
           className={` transition-all ease-in-out duration-300  ${
             navOpen
@@ -101,7 +102,7 @@ export default function Sidebar() {
                   Home
                 </ListItem>
               </Link>
-              <ListItem className='p-0 ' selected={open === 1}>
+              <ListItem  className='p-0 ' selected={open === 1}>
                 <AccordionHeader
                   onClick={() => handleOpen(1)}
                   className='p-3 border-b-0 text-muted-foreground'
@@ -117,7 +118,7 @@ export default function Sidebar() {
               <AccordionBody className='py-1'>
                 <List className='p-0'>
                   <Link to={'mod_lealtad'}>
-                    <ListItem className='text-sm text-muted-foreground'>
+                    <ListItem  onClick={handleNav} className='text-sm text-muted-foreground'>
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                       </ListItemPrefix>
@@ -125,7 +126,7 @@ export default function Sidebar() {
                     </ListItem>
                   </Link>
                   <Link to={'embozado'}>
-                    <ListItem className='text-muted-foreground'>
+                    <ListItem  onClick={handleNav} className='text-muted-foreground'>
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                       </ListItemPrefix>
@@ -133,56 +134,56 @@ export default function Sidebar() {
                     </ListItem>
                   </Link>
                   <Link to={'subagente'}>
-                    <ListItem className='text-muted-foreground'>
+                    <ListItem   onClick={handleNav} className='text-muted-foreground'>
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                       </ListItemPrefix>
                       Sub-agentes
                     </ListItem>
                   </Link>
-                  <ListItem className='text-muted-foreground'>
+                  <ListItem  onClick={handleNav} className='text-muted-foreground'>
                     <ListItemPrefix>
                       <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                     </ListItemPrefix>
                     Modulo Caja
                   </ListItem>
-                  <ListItem className='text-muted-foreground'>
+                  <ListItem  onClick={handleNav} className='text-muted-foreground'>
                     <ListItemPrefix>
                       <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                     </ListItemPrefix>
                     Castigos y Descargos
                   </ListItem>
-                  <ListItem className='text-muted-foreground'>
+                  <ListItem  onClick={handleNav} className='text-muted-foreground'>
                     <ListItemPrefix>
                       <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                     </ListItemPrefix>
                     Pago Tarjeta
                   </ListItem>
-                  <ListItem className='text-muted-foreground'>
+                  <ListItem  onClick={handleNav} className='text-muted-foreground'>
                     <ListItemPrefix>
                       <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                     </ListItemPrefix>
                     Pago Prestamos
                   </ListItem>
-                  <ListItem className='text-muted-foreground'>
+                  <ListItem   onClick={handleNav} className='text-muted-foreground'>
                     <ListItemPrefix>
                       <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                     </ListItemPrefix>
                     Codigos de Prefijos
                   </ListItem>
-                  <ListItem className='text-muted-foreground'>
+                  <ListItem  onClick={handleNav} className='text-muted-foreground'>
                     <ListItemPrefix>
                       <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                     </ListItemPrefix>
                     Cheques Devueltos
                   </ListItem>
-                  <ListItem className='text-muted-foreground'>
+                  <ListItem  onClick={handleNav} className='text-muted-foreground'>
                     <ListItemPrefix>
                       <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                     </ListItemPrefix>
                     Cheques en transito
                   </ListItem>
-                  <ListItem className='text-muted-foreground'>
+                  <ListItem  onClick={handleNav} className='text-muted-foreground'>
                     <ListItemPrefix>
                       <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                     </ListItemPrefix>
@@ -217,13 +218,13 @@ export default function Sidebar() {
               </ListItem>
               <AccordionBody className='py-1'>
                 <List className='p-0'>
-                  <ListItem className='text-muted-foreground'>
+                  <ListItem  onClick={handleNav} className='text-muted-foreground'>
                     <ListItemPrefix>
                       <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                     </ListItemPrefix>
                     Orders
                   </ListItem>
-                  <ListItem className='text-muted-foreground'>
+                  <ListItem  onClick={handleNav} className='text-muted-foreground'>
                     <ListItemPrefix>
                       <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                     </ListItemPrefix>
@@ -232,6 +233,8 @@ export default function Sidebar() {
                 </List>
               </AccordionBody>
             </Accordion>
+            <div className='sm:hidden'>
+
             <hr className='my-2 border-blue-gray-300' />
             <ListItem className='text-muted-foreground'>
               <ListItemPrefix>
@@ -243,7 +246,7 @@ export default function Sidebar() {
                   value='14'
                   size='md'
                   className='rounded-full bg-primary'
-                />
+                  />
               </ListItemSuffix>
             </ListItem>
             <ListItem className='text-muted-foreground'>
@@ -264,46 +267,58 @@ export default function Sidebar() {
               </ListItemPrefix>
               Log Out
             </ListItem>
+            </div>
           </List>
           {/* <Alert open={openAlert} className="mt-auto" onClose={() => setOpenAlert(false)}>
         <CubeTransparentIcon className="w-12 h-12 mb-4" />
         <Typography variant="h6" className="mb-1">
           Actualizar a Pro
-        </Typography>
-        <Typography variant="mdall" className="font-normal opacity-80">
+          </Typography>
+          <Typography variant="mdall" className="font-normal opacity-80">
           Actualiza tu Licencia a ItransCard PRO para tener acceso a los demas Modulos de ItransCard
-        </Typography>
-        <div className="flex gap-3 mt-4">
+          </Typography>
+          <div className="flex gap-3 mt-4">
           <Typography
-            as="a"
-            href="#"
-            variant="mdall"
-            className="font-medium opacity-80"
-            onClick={() => setOpenAlert(false)}
+          as="a"
+          href="#"
+          variant="mdall"
+          className="font-medium opacity-80"
+          onClick={() => setOpenAlert(false)}
           >
-            Cerrar
+          Cerrar
           </Typography>
           <Typography as="a" href="#" variant="mdall" className="font-medium">
-            Actualizar ahora
+          Actualizar ahora
           </Typography>
-        </div>
+          </div>
       </Alert> */}
         </div>
       </Card>
-      <div className='fixed z-40 justify-between hidden w-full font-semibold shadow-sm sm:flex text-foreground '>
-        <div></div>
-        <div className='relative flex items-center right-3'>
+      <div className='fixed z-50 justify-between hidden w-full p-1 font-semibold h-16 shadow-sm sm:flex text-foreground'>
+        <div onClick={handleMenu}  className='fixed  flex items-center p-1 border border-red-700/20 rounded-full cursor-pointer right-3'>
           <img
-            className='w-16 p-2 rounded-full '
+            className='w-10 rounded-full '
             src='https://ai-avatar-generator.com/avatars/1930.jpg'
             alt='avatar'
           />
-          <button onClick={handleMenu} className='cursor-pointer'>
-            <ChevronDownIcon
-              strokeWidth={2.5}
-              className={`mx-auto h-4 w-4 transition-transform`}
-            />
-          </button>
+        </div>
+        <div onChange={handleMenu} className={`w-32 h-max bg-background border rounded fixed right-3 top-14 shadow p-2 transition-all duration-300 ${menuOpen ? 'visible opacity-100 ' : 'invisible opacity-0'}`}>
+          <div className='divide-y'>
+          <div className='p-1 text-sm'>Perfil</div>
+          <hr />
+          </div>
+          <Link to={'settings'}>
+          <div className='p-1 font-normal text-sm'>Notificaciones</div>
+          </Link>
+          <Link>
+          <div className='p-1 font-normal text-sm'>Ajustes</div>
+          </Link>
+          <div className='divide-y'>
+          <hr />
+          <Link>
+          <div className='p-1 text-sm'>Cerrar Session</div>
+          </Link>
+          </div>
         </div>
       </div>
     </>

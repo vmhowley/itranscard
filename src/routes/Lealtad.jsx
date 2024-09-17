@@ -11,7 +11,7 @@ function Lealtad() {
   return (
     <> 
     <BreadCrumb crumbsData={crumbsData}/>
-    <div>Lealtad</div>
+    <div className='flex '>Lealtad</div>
     </>
   )
 }

@@ -15,7 +15,7 @@ function ConsultaEmbozado() {
   return (
     <div className=''>
             <BreadCrumb crumbsData={crumbsData}/>
-    <div className='justify-center h-[800px] w-full sm:place-content-center '>
+    <div className='justify-center w-full sm:place-content-center '>
       <section className='justify-center max-w-4xl p-6 mx-auto border rounded-md shadow-md bg-card'>
         <h2 className='text-lg font-semibold text-gray-700 capitalize dark:text-white'>
           Account settings
