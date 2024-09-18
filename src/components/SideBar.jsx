@@ -10,13 +10,11 @@ import {
   Accordion,
   AccordionHeader,
   AccordionBody,
-  Alert,
   Input,
 } from '@material-tailwind/react'
 import {
   ChevronRightIcon,
   ChevronDownIcon,
-  CubeTransparentIcon,
   MagnifyingGlassIcon,
   PresentationChartBarIcon,
   ShoppingBagIcon,
@@ -28,6 +26,16 @@ import {
   HomeModernIcon,
 } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { Button } from "@/components/ui/button"
+
 
 export default function Sidebar() {
   const [open, setOpen] = useState(true)
@@ -44,6 +52,8 @@ export default function Sidebar() {
   const handleNav = () => {
     setNavOpen(!navOpen)
   }
+
+
 
   return (
     <>
@@ -296,29 +306,31 @@ export default function Sidebar() {
       </Card>
       <div className='fixed z-50 justify-between hidden w-full p-1 font-semibold h-16 shadow-sm sm:flex text-foreground'>
         <div onClick={handleMenu}  className='fixed  flex items-center p-1 border border-red-700/20 rounded-full cursor-pointer right-3'>
-          <img
-            className='w-10 rounded-full '
-            src='https://ai-avatar-generator.com/avatars/1930.jpg'
-            alt='avatar'
-          />
-        </div>
-        <div onChange={handleMenu} className={`w-32 h-max bg-background border rounded fixed right-3 top-14 shadow p-2 transition-all duration-300 ${menuOpen ? 'visible opacity-100 ' : 'invisible opacity-0'}`}>
-          <div className='divide-y'>
-          <div className='p-1 text-sm'>Perfil</div>
-          <hr />
-          </div>
-          <Link to={'settings'}>
-          <div className='p-1 font-normal text-sm'>Notificaciones</div>
-          </Link>
-          <Link>
-          <div className='p-1 font-normal text-sm'>Ajustes</div>
-          </Link>
-          <div className='divide-y'>
-          <hr />
-          <Link>
-          <div className='p-1 text-sm'>Cerrar Session</div>
-          </Link>
-          </div>
+        <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="outline"
+                size="icon"
+                className="overflow-hidden rounded-full"
+              >
+                <img
+                  src="https://ai-avatar-generator.com/avatars/1930.jpg"
+                  width={36}
+                  height={36}
+                  alt="Avatar"
+                  className="overflow-hidden rounded-full"
+                />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Settings</DropdownMenuItem>
+              <DropdownMenuItem>Support</DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Logout</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </>

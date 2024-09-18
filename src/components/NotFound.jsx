@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
                     </p>
                     <div className="flex flex-wrap items-center justify-center gap-3">
                         <Link to={'/'} className="block px-4 py-2 font-medium text-white duration-150 rounded-lg bg-primary hover:bg-secondary active:bg-primary">
-                            Volver
+                            Ir a inicio
                         </Link>
                         <Link to={'support'} className="block px-4 py-2 font-medium duration-150 border rounded-lg text-muted-foreground hover:bg-gray-50 active:bg-gray-100">
                             Contactar Soporte
