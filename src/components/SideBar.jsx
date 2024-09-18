@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   Card,
   Typography,
@@ -24,6 +24,7 @@ import {
   PowerIcon,
   Bars3BottomLeftIcon,
   HomeModernIcon,
+  XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 import {
@@ -37,7 +38,11 @@ import {
 import { Button } from "@/components/ui/button"
 
 
+
+
 export default function Sidebar() {
+
+
   const [open, setOpen] = useState(true)
   const [navOpen, setNavOpen] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -58,15 +63,15 @@ export default function Sidebar() {
   return (
     <>
       <Card
-        className={`fixed w-full md:overflow-y-auto md:fixed md:h-[calc(100%)]  sm:rounded-none  md:max-w-[220px] lg:max-w-[280px] z-50 shadow  shadow-white-900/5 transition-all   bg-background md:translate-x-0 `}
+        className={`fixed  w-full md:overflow-y-auto md:fixed md:h-[calc(100%)]  sm:rounded-none  md:max-w-[220px] lg:max-w-[280px] z-50 shadow  shadow-white-900/5 transition-all   bg-background md:translate-x-0 `}
       >
         <div className={`flex justify-around items-center flex-row-reverse`} >
 
         <button
-          className={` justify-center w-10 h-10  rounded  md:relative md:hidden duration-500 transition-all ease-in-out `}
+          className={` justify-center w-12 h-12   p-2  md:relative md:hidden   `}
           onClick={handleNav}
           >
-          <Bars3BottomLeftIcon />
+            {navOpen ?  <XMarkIcon className={` duration-1000 transition-all ease-in-out delay-200 ${navOpen ? "visible opacity-100 ":"invisible opacity-0  "}`}/> : <Bars3BottomLeftIcon className={`delay-500 duration-500 transition-all ease-in-out ${navOpen ? "opacity-0 invisible" :"opacity-100 visible"}`}/>}
         </button>
         <div className={`flex gap-4 p-4 pb-5 mb-2`}>
           <img
@@ -304,7 +309,7 @@ export default function Sidebar() {
       </Alert> */}
         </div>
       </Card>
-      <div className='fixed z-50 justify-between hidden w-full p-1 font-semibold h-16 shadow-sm sm:flex text-foreground'>
+      <div className='fixed z-40 justify-between hidden w-full p-1 font-semibold h-16 shadow-sm sm:flex text-foreground'>
         <div onClick={handleMenu}  className='fixed  flex items-center p-1 border border-red-700/20 rounded-full cursor-pointer right-3'>
         <DropdownMenu>
             <DropdownMenuTrigger asChild>

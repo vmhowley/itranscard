@@ -31,7 +31,7 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import BreadCrumb from "@/components/BreadCrumb"
-
+import {motion} from "framer-motion"
 export const description =
   "An application shell with a header and main content area. The header has a navbar, a search input and and a user nav dropdown. The user nav is toggled by a button with an avatar image. The main content area is divided into two rows. The first row has a grid of cards with statistics. The second row has a grid of cards with a table of recent transactions and a list of recent sales."
 
@@ -45,8 +45,11 @@ export const description =
   return (
     <>
     <BreadCrumb crumbsData={crumbsData}/>
-    <div className="flex flex-col w-full min-h-screen ">
-
+    <motion.div 
+    className="flex flex-col w-full min-h-screen "
+    initial={{opacity: 0}}
+    animate={{ opacity: 100 }}
+  transition={{ ease: [0.17, 0.67, 0.83, 0.67] }}>
       <main className="flex flex-col flex-1 gap-4 p-4 md:gap-8 md:p-8">
         <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
           <Card x-chunk="dashboard-01-chunk-0">
@@ -326,7 +329,7 @@ export const description =
           </Card>
         </div>
       </main>
-    </div>
+    </motion.div>
             </>
   )
 }
