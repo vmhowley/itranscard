@@ -19,7 +19,7 @@ function App() {
       <AnimatePresence>
         <AuthProvider>
           <SideBar />
-          <div className='fixed inset-0 z-0 flex justify-center gap-3 p-5 overflow-auto items pt-28 md:fixed md:pl-72 '>
+          <div className='fixed  inset-0 flex justify-center gap-3 p-5 overflow-auto items pt-28 md:fixed md:pl-72 '>
             <Routes>
               <Route path='/login' element={<Login />} />
               {/* ----------------------------==Rutas privadas==---------------------------------- */}

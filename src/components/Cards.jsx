@@ -1,21 +1,19 @@
-import BreadCrumb from '@/components/BreadCrumb'
-import { Button } from '@material-tailwind/react'
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function Cards({CardsData, ubi}) {
 
- console.log(ubi)
   return (
     <>
-    <div className={`grid xl:flex-wrap gap-6 font-bold ${ubi === 'vertical' ? 'xl:grid' : 'xl:flex'} `}>
+    <div className={`grid  gap-6  ${ubi === 'vertical' ? 'xl:grid' : 'xl:flex'} `}>
       {CardsData.map((card)=>
-        <Link   key={card.id} to={card.path}>
-        <Button 
-        className={`items-center flex justify-center p-5 tracking-wider transition-all ease-in-out border text-foreground min-w-40  min-h-32 md:max-w-36   xl:w-60 xl:h-40   bg-card ${ubi === 'vertical' ? 'sm:w-60 h-24':'sm:w-40'} rounded-xl hover:scale-125`}>
-            {card.name}
-        </Button>
-        </Link>
+        <div key={card.id}
+        className={`items-center grid justify-center p-1 h-40  transition-all ease-in-out border text-foreground min-w-40  min-h-32 md:max-w-56   xl:w-60 xl:h-40   bg-card ${ubi === 'vertical' ? 'sm:w-60 h-24':'sm:w-40'} rounded-xl `}>
+            <h1 className='grid justify-center items-center font-bold content-center text-center'>{card.name}</h1>
+            <h1 className='grid justify-center items-center content-center text-center text-sm text-muted-foreground '>{card.desc}</h1>
+            <Link to={card.path} className='text-white dark:text-black bg-primary justify-center flex rounded-xl content-center p-1'><button className='w-16'>
+            {card.button}</button></Link>
+        </div>
 )}
     </div>
     </>

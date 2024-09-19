@@ -38,7 +38,7 @@ import {
 import { Button } from "@/components/ui/button"
 
 
-
+import logo from '../assets/logo.png'
 
 export default function Sidebar() {
 
@@ -63,7 +63,7 @@ export default function Sidebar() {
   return (
     <>
       <Card
-        className={`fixed  w-full md:overflow-y-auto md:fixed md:h-[calc(100%)]  sm:rounded-none  md:max-w-[220px] lg:max-w-[280px] z-50 shadow  shadow-white-900/5 transition-all   bg-background md:translate-x-0 `}
+        className={`fixed  w-full md:overflow-y-auto md:fixed md:h-[calc(100%)]  sm:rounded-none  md:max-w-[220px] lg:max-w-[280px] z-30 shadow  shadow-white-900/5 transition-all   bg-background md:translate-x-0 `}
       >
         <div className={`flex justify-around items-center flex-row-reverse`} >
 
@@ -76,6 +76,11 @@ export default function Sidebar() {
         <div className={`flex gap-4 p-4 pb-5 mb-2`}>
           <img
             src='https://ibsystems.com.do/assets/images/logo-light.png'
+            alt='brand'
+            className='w-64 dark:hidden'
+            />
+          <img
+            src={logo}
             alt='brand'
             className='w-64'
             />
@@ -284,33 +289,10 @@ export default function Sidebar() {
             </ListItem>
             </div>
           </List>
-          {/* <Alert open={openAlert} className="mt-auto" onClose={() => setOpenAlert(false)}>
-        <CubeTransparentIcon className="w-12 h-12 mb-4" />
-        <Typography variant="h6" className="mb-1">
-          Actualizar a Pro
-          </Typography>
-          <Typography variant="mdall" className="font-normal opacity-80">
-          Actualiza tu Licencia a ItransCard PRO para tener acceso a los demas Modulos de ItransCard
-          </Typography>
-          <div className="flex gap-3 mt-4">
-          <Typography
-          as="a"
-          href="#"
-          variant="mdall"
-          className="font-medium opacity-80"
-          onClick={() => setOpenAlert(false)}
-          >
-          Cerrar
-          </Typography>
-          <Typography as="a" href="#" variant="mdall" className="font-medium">
-          Actualizar ahora
-          </Typography>
-          </div>
-      </Alert> */}
         </div>
       </Card>
-      <div className='fixed z-40 justify-between hidden w-full p-1 font-semibold h-16 shadow-sm sm:flex text-foreground'>
-        <div onClick={handleMenu}  className='fixed  flex items-center p-1 border border-red-700/20 rounded-full cursor-pointer right-3'>
+      <div className='sticky z-10 justify-between hidden w-full p-1 font-semibold h-16 shadow-sm sm:flex text-foreground'>
+        <div onClick={handleMenu}  className='fixed   flex items-center p-1 border border-red-700/20 rounded-full cursor-pointer right-3'>
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button

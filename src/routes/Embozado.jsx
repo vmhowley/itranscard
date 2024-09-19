@@ -17,18 +17,24 @@ function Embozado() {
     {
       id: 1,
       name: 'Consultar',
-      path:"consultas"
+      path:"consultas",
+      desc:"Gestione todos los embozos realizados.",
+      button:"Iniciar"
     },
     {
       id: 2,
       name: 'Procesos',
-      path:"procesos"
+      path:"procesos",
+      desc:"Iniciar el proceso de embozado",
+      button:"Iniciar"
 
     },
     {
       id: 3,
       name: 'Mantenimiento',
-      path:"mantenimiento"
+      path:"mantenimiento",
+      desc:"",
+      button:""
 
     },
 
@@ -36,8 +42,8 @@ function Embozado() {
 
   return (
     <>
-      <BreadCrumb crumbsData={crumbsData}/>
-    <motion.div className='flex justify-center pt-10'
+      <BreadCrumb  crumbsData={crumbsData}/>
+    <motion.div className='flex  justify-center pt-10'
      initial={{ opacity: 0 }}
      animate={{ opacity: 1 }}
      exit={{ opacity: 0 }}>
