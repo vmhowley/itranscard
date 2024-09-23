@@ -85,11 +85,13 @@ function SubAgente() {
           </div>
           <CarouselSpacing CardsData={CardsData} />
         </div>
-        <div className=' sm:justify-center sm:grid'>
+        <div className=' sm:justify-center sm:grid sm:w-full'>
           <div className='pb-6 font-bold text-xl md:text-center text-muted-foreground'>
             Consultas
           </div>
-          <Cards CardsData={CardsData2} ubi={''} />
+          <CarouselSpacing CardsData={CardsData2} />
+
+          {/* <Cards CardsData={CardsData2} ubi={''} /> */}
         </div>
       </div>
     </motion.div>

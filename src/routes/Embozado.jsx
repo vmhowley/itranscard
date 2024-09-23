@@ -1,10 +1,7 @@
 import BreadCrumb from '@/components/BreadCrumb'
 import Cards from '@/components/Cards'
-import { Button } from '@material-tailwind/react'
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { CarouselSpacing } from '@/components/CarouselSpacing'
 import { motion } from 'framer-motion'
-import { Opacity } from '@mui/icons-material'
 function Embozado() {
   const crumbsData = [
     {
@@ -33,21 +30,21 @@ function Embozado() {
       id: 3,
       name: 'Mantenimiento',
       path:"mantenimiento",
-      desc:"",
-      button:""
+      desc:"Modifica Los procesos de embozado ",
+      button:"Iniciar"
 
     },
 
   ]
-
   return (
     <>
       <BreadCrumb  crumbsData={crumbsData}/>
-    <motion.div className='flex  justify-center pt-10'
+    <motion.div className=''
      initial={{ opacity: 0 }}
      animate={{ opacity: 1 }}
      exit={{ opacity: 0 }}>
-      <Cards CardsData={CardsData} />
+      <CarouselSpacing CardsData={CardsData} />
+     
     </motion.div>
     </>
   )

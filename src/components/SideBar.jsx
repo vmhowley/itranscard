@@ -39,6 +39,7 @@ import { Button } from "@/components/ui/button"
 
 
 import logo from '../assets/logo.png'
+import { AccordionDetails } from '@mui/material'
 
 export default function Sidebar() {
 
@@ -71,18 +72,18 @@ export default function Sidebar() {
           className={` justify-center w-12 h-12   p-2  md:relative md:hidden   `}
           onClick={handleNav}
           >
-            {navOpen ?  <XMarkIcon className={` duration-1000 transition-all ease-in-out delay-200 ${navOpen ? "visible opacity-100 ":"invisible opacity-0  "}`}/> : <Bars3BottomLeftIcon className={`delay-500 duration-500 transition-all ease-in-out ${navOpen ? "opacity-0 invisible" :"opacity-100 visible"}`}/>}
+            {navOpen ?  <XMarkIcon className={`duration-1000 transition-all ease-in-out delay-200 ${navOpen ? "visible opacity-100 ":"invisible opacity-0  "}`}/> : <Bars3BottomLeftIcon className={`delay-500 duration-500 transition-all ease-in-out ${navOpen ? "opacity-0 invisible" :"opacity-100 visible"}`}/>}
         </button>
         <div className={`flex gap-4 p-4 pb-5 mb-2`}>
           <img
             src='https://ibsystems.com.do/assets/images/logo-light.png'
             alt='brand'
-            className='w-64 dark:hidden'
+            className='w-64 dark:hidden block'
             />
           <img
             src={logo}
             alt='brand'
-            className='w-64'
+            className='w-64 hidden dark:block'
             />
         </div>
             </div>
@@ -142,8 +143,8 @@ export default function Sidebar() {
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                       </ListItemPrefix>
-                      Modulo Lealtad
-                    </ListItem>
+                      Sistema de Lealtad
+                      </ListItem>
                   </Link>
                   <Link to={'embozado'}>
                     <ListItem  onClick={handleNav} className='text-muted-foreground'>

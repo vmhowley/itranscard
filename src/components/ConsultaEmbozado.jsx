@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BreadCrumb from './BreadCrumb'
 
 function ConsultaEmbozado() {
+  const [data, setData] = useState()
     const crumbsData = [
         {
             id:"1",
@@ -12,6 +13,18 @@ function ConsultaEmbozado() {
             name:"Consultas",
         }
     ]
+
+    const handleSubmit = (e) => {
+      setData({...data, [e.target.id]: e.target.value})
+    }
+
+    const handleCopy = () => {
+      const copytext = document.getElementById('area')
+    copytext.select()
+    copytext.setSelectionRange(0,99999);
+    navigator.clipboard.writeText(copytext.value);
+      alert('texto copiado: '+copytext.value)
+    }
   return (
     <div className=''>
             <BreadCrumb crumbsData={crumbsData}/>
@@ -33,6 +46,7 @@ function ConsultaEmbozado() {
               <input
                 id='username'
                 type='text'
+                onChange={handleSubmit}
                 className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring'
                 />
             </div>
@@ -88,6 +102,7 @@ function ConsultaEmbozado() {
         </form>
       </section>
     </div>
+    <textarea onClick={handleCopy} className='text-black' name="area" id="area"value={JSON.stringify(data)} ></textarea>
                 </div>
   )
 }
