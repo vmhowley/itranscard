@@ -12,6 +12,7 @@ import Embozado from './routes/Embozado'
 import ConsultaEmbozado from './components/ConsultaEmbozado'
 import { AnimatePresence } from 'framer-motion'
 import SubAgente from './routes/SubAgente'
+import Banner from './components/Banner'
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
       <AnimatePresence>
         <AuthProvider>
           <SideBar />
-          <div className='fixed  inset-0 flex justify-center gap-3 p-5 overflow-auto items pt-28 md:fixed md:pl-72 '>
+          <Banner/>
+          <div className='relative  inset-0 flex justify-center gap-3 pt-36 overflow-auto   md:ml-72 '>
             <Routes>
               <Route path='/login' element={<Login />} />
               {/* ----------------------------==Rutas privadas==---------------------------------- */}

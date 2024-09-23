@@ -15,7 +15,7 @@ export function CarouselSpacing({CardsData, ubi}) {
     <Carousel className="w-full max-w-full">
       <CarouselContent className="-ml-1">
       {CardsData.map((card,index)=>
-          <CarouselItem key={index} className={`pl-1 md:basis-1/4 lg:basis-1/3`}>
+          <CarouselItem key={index} className={`pl-1 md:basis-1/4 lg:basis-1/${longi}`}>
             <div className="p-1">
         <div key={card.id}
         className={`items-center grid justify-center p-1 h-40 transition-all ease-in-out border text-foreground xl:w-60 xl:h-40 bg-card ${ubi === 'vertical' ? 'sm:w-60 h-24':'sm:w-40'} rounded-xl `}>

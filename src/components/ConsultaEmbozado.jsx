@@ -7,10 +7,12 @@ function ConsultaEmbozado() {
         {
             id:"1",
             name:"Sistema de Embozado",
+            path:"/embozado"
         },
         {
             id:"2",
-            name:"Consultas",
+            name:"Consul/tas",
+            path:"/consultas"
         }
     ]
 

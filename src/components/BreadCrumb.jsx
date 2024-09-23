@@ -27,7 +27,7 @@ function BreadCrumb({crumbsData}) {
       {crumbsData.map((data)=> 
         <BreadcrumbItem key={data.id}>
           <BreadcrumbLink className='capitalize' asChild>
-            <Link href='#'>{data.name}</Link>
+            <Link to={data.path}>{data.name}</Link>
           </BreadcrumbLink>
           <BreadcrumbSeparator className={`${data.name ? 'flex' : 'hidden'}`}/>
         </BreadcrumbItem>

@@ -1,0 +1,16 @@
+{
+    "en": {
+      "translation": {
+        "Una nueva version de Itranscard ya esta Disponible!": "New version of Itranscard released",
+        "Novedades": "News",
+        "Inicio": "Home",
+        "Modulo Seguridad": "Security Modules",
+        "Sistema de Lealtad":"Loyalty system"
+      }
+    },
+    "fr": {
+      "translation": {
+        "Welcome to React": "Bienvenue à React et react-i18next"
+      }
+    }
+  }

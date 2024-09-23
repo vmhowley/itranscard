@@ -11,6 +11,7 @@ import {
   AccordionHeader,
   AccordionBody,
   Input,
+  Alert,
 } from '@material-tailwind/react'
 import {
   ChevronRightIcon,
@@ -25,6 +26,8 @@ import {
   Bars3BottomLeftIcon,
   HomeModernIcon,
   XMarkIcon,
+  CubeTransparentIcon,
+
 } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 import {
@@ -36,14 +39,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
-
+import { useTranslation } from 'react-i18next'
 
 import logo from '../assets/logo.png'
 import { AccordionDetails } from '@mui/material'
 
 export default function Sidebar() {
 
-
+  const {t, i18next} = useTranslation()
   const [open, setOpen] = useState(true)
   const [navOpen, setNavOpen] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -120,7 +123,7 @@ export default function Sidebar() {
                   <ListItemPrefix>
                     <HomeModernIcon className='w-5 h-5 text-primary' />
                   </ListItemPrefix>
-                  Home
+                  {t('Inicio')}
                 </ListItem>
               </Link>
               <ListItem  className='p-0 ' selected={open === 1}>
@@ -132,7 +135,7 @@ export default function Sidebar() {
                     <PresentationChartBarIcon className='w-5 h-5 text-primary' />
                   </ListItemPrefix>
                   <Typography className='mr-auto text-sm font-semibold text-muted-foreground'>
-                    Modulo Seguridad
+                    {t('Modulo Seguridad')}
                   </Typography>
                 </AccordionHeader>
               </ListItem>
@@ -143,7 +146,7 @@ export default function Sidebar() {
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                       </ListItemPrefix>
-                      Sistema de Lealtad
+                      {t('Sistema de Lealtad')}
                       </ListItem>
                   </Link>
                   <Link to={'embozado'}>
@@ -290,9 +293,32 @@ export default function Sidebar() {
             </ListItem>
             </div>
           </List>
+          <Alert open={openAlert} className="mt-auto" onClose={() => setOpenAlert(false)}>
+        <CubeTransparentIcon className="mb-4 h-12 w-12" />
+        <Typography variant="h6" className="mb-1">
+          IBSYSTEMS ADS
+        </Typography>
+        <Typography variant="small" className="font-normal opacity-80">
+          En este apartado se representaran anuncios IBSYSTEMS  y o actualizaciones del sistema 
+        </Typography>
+        <div className="mt-4 flex gap-3">
+          <Typography
+            as="a"
+            href="#"
+            variant="small"
+            className="font-medium opacity-80"
+            onClick={() => setOpenAlert(false)}
+          >
+            Declinar
+          </Typography>
+          <Typography as="a" href="#" variant="small" className="font-medium">
+            Actualizar
+          </Typography>
+        </div>
+      </Alert>
         </div>
       </Card>
-      <div className='sticky z-10 justify-between hidden w-full p-1 font-semibold h-16 shadow-sm sm:flex text-foreground'>
+      <div className='fixed  z-20 bg-background justify-between hidden w-full p-1 font-semibold h-16 shadow-sm sm:flex text-foreground'>
         <div onClick={handleMenu}  className='fixed   flex items-center p-1 border border-red-700/20 rounded-full cursor-pointer right-3'>
         <DropdownMenu>
             <DropdownMenuTrigger asChild>

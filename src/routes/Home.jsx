@@ -46,7 +46,7 @@ export const description =
     <>
     <BreadCrumb crumbsData={crumbsData}/>
     <motion.div 
-    className="flex flex-col w-full min-h-screen "
+    className="flex flex-col w-full min-h-screen relative -top-16 "
     initial={{opacity: 0}}
     animate={{ opacity: 100 }}
   transition={{ ease: [0.17, 0.67, 0.83, 0.67] }}>
