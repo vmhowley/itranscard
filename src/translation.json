@@ -5,12 +5,37 @@
         "Novedades": "News",
         "Inicio": "Home",
         "Modulo Seguridad": "Security Modules",
-        "Sistema de Lealtad":"Loyalty system"
-      }
-    },
-    "fr": {
-      "translation": {
-        "Welcome to React": "Bienvenue à React et react-i18next"
+        "Sistema de Lealtad":"Loyalty system",
+        "Cambiar idioma":"Change language",
+        "Sistema de Embozado":"Clogging system",
+        "Sub-agentes":"Sub-agent",
+        "Modulo Caja":"Cashier module",
+        "Castigos y Descargos":"Punishments and Downloads",
+        "Pago Tarjeta":"Card Payment",
+        "Pago Prestamos":"Loan Payment",
+        "Codigos de Prefijos":"Prefix Code",
+        "Cheques Devueltos":"Checks Returned",
+        "Cheques en transito":"Checks in Transit",
+        "Conexion Autorizador":"Authorizer connection",
+        "Español":"Spanish",
+        "Ingles":"English",
+        "Iniciar":"Start",
+        "Acceder":"Access",
+        "Retiros":"Withdraws",
+        "Consultar":"Consult",
+        "Procesos":"Process",
+        "Mantenimiento":"Maintenance",
+        "Pago de tarjeta":"Card Payment",
+        "Pago de Prestamos":"Loan Payment",
+        "Compras":"Purcharses",
+        "Prestamos":"Loans",
+        "Consulte todos los embozos realizados":"Check all the strokes made",
+        "Tarjeta de Credito":"Credit Card",
+        "Cuenta de Ahorros":"Savings Account",
+        "Consulta tus ultimas Transacciones":"Check your last transactions",
+        "Consulta pagos de tarjeta de credito":"Make credit card payments",
+        "Gestiona tus prestamos activos":"Manage your active loans",
+        "Realiza retiros de efectivo":"Make cash withdrawals"
       }
     }
   }

@@ -1,0 +1,21 @@
+{
+	"app": {
+		"format": {
+			"curreny": "Total:{{val, currency(DOP)}}",
+			"datetime": "Hoy es {{now, datetime}}",
+			"numbers": "Esto es  pi: {{pi, number}}",
+			"numbers-limit": "",
+			"relative-time": ""
+		},
+		"interpolation": ""
+	},
+	"components": {
+		"func-component": {
+			"text": "",
+			"title": "React exampleas"
+		},
+		"hoc-component": {
+			"text": ""
+		}
+	}
+}

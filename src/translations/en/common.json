@@ -1,0 +1,14 @@
+{
+	"app": {
+		"format": {
+			"curreny": "Total:{{val, currency(USD)}}",
+			"datetime": "Today is {{now, datetime}}",
+			"numbers": "This is pi: {{pi, number}}"
+		}
+	},
+	"components": {
+		"func-component": {
+			"title": "reaccc"
+		}
+	}
+}

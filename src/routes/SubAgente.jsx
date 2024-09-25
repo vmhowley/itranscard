@@ -29,7 +29,7 @@ const CardsData = [
     id: 3,
     name: 'Retiros',
     path: 'Retiros',
-    desc:"Realiza retiros de efectivo",
+    desc:"Consulta retiros de efectivo",
     button:"Iniciar"
 
   },
@@ -37,7 +37,7 @@ const CardsData = [
     id: 4,
     name: 'Compras',
     path: 'compras',
-    desc:"Revisa tus ultimas trasacciones",
+    desc:"Consulta tus ultimas transacciones",
     button:"Iniciar"
 
   },
@@ -47,22 +47,22 @@ const CardsData2 = [
     id: 1,
     name: 'Prestamos',
     path: 'prestamos',
-    desc:"Revisa tus ultimas trasacciones",
+    desc:"Consulta tus ultimas Transacciones",
     button:"Acceder",
   },
   {
     id: 2,
-    name: 'Tc Credito',
+    name: 'Tarjeta de Credito',
     path: 'pagotc',
-    desc:"Revisa tus ultimas trasacciones",
+    desc:"Consulta tus ultimas Transacciones",
     button:"Acceder",
 
   },
   {
     id: 3,
-    name: 'Cuenta de Debito',
+    name: 'Cuenta de Ahorros',
     path: 'pagodb',
-    desc:"Revisa tus ultimas trasacciones",
+    desc:"Consulta tus ultimas Transacciones",
     button:"Acceder"
   },
 ]

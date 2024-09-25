@@ -1,11 +1,18 @@
+import { useState } from "react";
 import { Link } from "react-router-dom"
 import { useTranslation } from 'react-i18next';
 
+
 const Banner = () => {
     const { t, i18n } = useTranslation();
+    const [open, setOpen] = useState(true)
+
+    const handleBanner = () => {
+        setOpen(!open)
+    }
 
     return (
-        <div className="bg-muted-foreground fixed bottom-0 w-screen z-50 ">
+        <div className={`bg-muted-foreground/90   w-screen  z-50 fixed bottom-0 ${!open ? 'hidden' : 'block'}`}>
          <div className="max-w-screen mx-auto px-4 py-3 flex justify-between text-white ">
                 <div className="flex-1 justify-center flex items-start gap-x-4 sm:items-center">
                     <div className="flex-none p-1.5 px-4 rounded-full bg-primary flex items-center justify-center font-medium text-sm">
@@ -20,7 +27,7 @@ const Banner = () => {
                         </a>
                     </p>
                 </div>
-                <button className="p-2 rounded-lg duration-150 hover:bg-primary text-foreground ring-offset-2 focus:ring bg-muted">
+                <button onClick={handleBanner} className="p-2 rounded-lg duration-150 hover:bg-primary text-foreground ring-offset-2 focus:ring bg-muted">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-6 h-6">
                         <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
                     </svg>

@@ -1,0 +1,32 @@
+{
+  "en": {
+    "translation": {
+      "Inicio": "Home",
+      "Modulo Seguridad": "Security Modules",
+      "Novedades": "News",
+      "Sistema de Lealtad": "Loyalty system",
+      "Una nueva version de Itranscard ya esta Disponible!": "New version of Itranscard released",
+      "Welcome to React": "Welcome to React and react-i18next"
+    }
+  },
+  "es_ES": {
+    "translation": {
+      "Inicio": "Inicio",
+      "Modulo Seguridad": "Modulo de Seguridad",
+      "Novedades": "Noticias",
+      "Sistema de Lealtad": "",
+      "Una nueva version de Itranscard ya esta Disponible!": "",
+      "Welcome to React": ""
+    }
+  },
+  "fr": {
+    "translation": {
+      "Inicio": "",
+      "Modulo Seguridad": "",
+      "Novedades": "",
+      "Sistema de Lealtad": "",
+      "Una nueva version de Itranscard ya esta Disponible!": "",
+      "Welcome to React": "Bienvenue à React et react-i18next"
+    }
+  }
+}

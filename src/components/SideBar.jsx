@@ -43,15 +43,19 @@ import { useTranslation } from 'react-i18next'
 
 import logo from '../assets/logo.png'
 import { AccordionDetails } from '@mui/material'
+import LangButton from './LangButton'
 
 export default function Sidebar() {
 
-  const {t, i18next} = useTranslation()
+  const { t, i18next } = useTranslation();
+
   const [open, setOpen] = useState(true)
   const [navOpen, setNavOpen] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [openAlert, setOpenAlert] = useState(true)
 
+
+ 
   const handleMenu = () => {
     setMenuOpen(!menuOpen)
   }
@@ -67,7 +71,7 @@ export default function Sidebar() {
   return (
     <>
       <Card
-        className={`fixed  w-full md:overflow-y-auto md:fixed md:h-[calc(100%)]  sm:rounded-none  md:max-w-[220px] lg:max-w-[280px] z-30 shadow  shadow-white-900/5 transition-all   bg-background md:translate-x-0 `}
+        className={`fixed overflow-scroll w-full md:overflow-y-auto md:fixed md:h-[calc(100%)]  sm:rounded-none  md:max-w-[220px] lg:max-w-[280px] z-30 shadow  shadow-white-900/5 transition-all   bg-background md:translate-x-0 `}
       >
         <div className={`flex justify-around items-center flex-row-reverse`} >
 
@@ -77,6 +81,7 @@ export default function Sidebar() {
           >
             {navOpen ?  <XMarkIcon className={`duration-1000 transition-all ease-in-out delay-200 ${navOpen ? "visible opacity-100 ":"invisible opacity-0  "}`}/> : <Bars3BottomLeftIcon className={`delay-500 duration-500 transition-all ease-in-out ${navOpen ? "opacity-0 invisible" :"opacity-100 visible"}`}/>}
         </button>
+        
         <div className={`flex gap-4 p-4 pb-5 mb-2`}>
           <img
             src='https://ibsystems.com.do/assets/images/logo-light.png'
@@ -90,6 +95,10 @@ export default function Sidebar() {
             />
         </div>
             </div>
+        
+        <div className='flex justify-center'>
+          <LangButton/>
+        </div>
         <div
           className={` transition-all ease-in-out duration-300  ${
             navOpen
@@ -154,7 +163,7 @@ export default function Sidebar() {
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                       </ListItemPrefix>
-                      Sistema de Embozado
+                      {t('Sistema de Embozado')}
                     </ListItem>
                   </Link>
                   <Link to={'subagente'}>
@@ -162,56 +171,56 @@ export default function Sidebar() {
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                       </ListItemPrefix>
-                      Sub-agentes
+                      {t('Sub-agentes')}
                     </ListItem>
                   </Link>
                   <ListItem  onClick={handleNav} className='text-muted-foreground'>
                     <ListItemPrefix>
                       <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                     </ListItemPrefix>
-                    Modulo Caja
+                    {t('Modulo Caja')}
                   </ListItem>
                   <ListItem  onClick={handleNav} className='text-muted-foreground'>
                     <ListItemPrefix>
                       <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                     </ListItemPrefix>
-                    Castigos y Descargos
+                    {t('Castigos y Descargos')}
                   </ListItem>
                   <ListItem  onClick={handleNav} className='text-muted-foreground'>
                     <ListItemPrefix>
                       <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                     </ListItemPrefix>
-                    Pago Tarjeta
+                    {t('Pago Tarjeta')}
                   </ListItem>
                   <ListItem  onClick={handleNav} className='text-muted-foreground'>
                     <ListItemPrefix>
                       <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                     </ListItemPrefix>
-                    Pago Prestamos
+                    {t('Pago Prestamos')}
                   </ListItem>
                   <ListItem   onClick={handleNav} className='text-muted-foreground'>
                     <ListItemPrefix>
                       <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                     </ListItemPrefix>
-                    Codigos de Prefijos
+                    {t('Codigos de Prefijos')}
                   </ListItem>
                   <ListItem  onClick={handleNav} className='text-muted-foreground'>
                     <ListItemPrefix>
                       <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                     </ListItemPrefix>
-                    Cheques Devueltos
+                    {t('Cheques Devueltos')}
                   </ListItem>
                   <ListItem  onClick={handleNav} className='text-muted-foreground'>
                     <ListItemPrefix>
                       <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                     </ListItemPrefix>
-                    Cheques en transito
+                    {t('Cheques en transito')}
                   </ListItem>
                   <ListItem  onClick={handleNav} className='text-muted-foreground'>
                     <ListItemPrefix>
                       <ChevronRightIcon strokeWidth={3} className='w-5 h-3' />
                     </ListItemPrefix>
-                    Conexion Autorizador
+                    {t("Conexion Autorizador")}
                   </ListItem>
                 </List>
               </AccordionBody>
@@ -293,7 +302,8 @@ export default function Sidebar() {
             </ListItem>
             </div>
           </List>
-          <Alert open={openAlert} className="mt-auto" onClose={() => setOpenAlert(false)}>
+        </div>
+          {/* <Alert open={openAlert} className="mt-auto" onClose={() => setOpenAlert(false)}>
         <CubeTransparentIcon className="mb-4 h-12 w-12" />
         <Typography variant="h6" className="mb-1">
           IBSYSTEMS ADS
@@ -315,11 +325,12 @@ export default function Sidebar() {
             Actualizar
           </Typography>
         </div>
-      </Alert>
-        </div>
+      </Alert> */}
       </Card>
       <div className='fixed  z-20 bg-background justify-between hidden w-full p-1 font-semibold h-16 shadow-sm sm:flex text-foreground'>
-        <div onClick={handleMenu}  className='fixed   flex items-center p-1 border border-red-700/20 rounded-full cursor-pointer right-3'>
+
+        <div onClick={handleMenu}  className='fixed flex items-center p-1 border border-red-700/20 rounded-full cursor-pointer right-3'>
+        
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
@@ -335,7 +346,9 @@ export default function Sidebar() {
                   className="overflow-hidden rounded-full"
                 />
               </Button>
+              
             </DropdownMenuTrigger>
+          
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
@@ -345,6 +358,7 @@ export default function Sidebar() {
               <DropdownMenuItem>Logout</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
+          
         </div>
       </div>
     </>

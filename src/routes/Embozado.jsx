@@ -15,7 +15,7 @@ function Embozado() {
       id: 1,
       name: 'Consultar',
       path:"consultas",
-      desc:"Gestione todos los embozos realizados.",
+      desc:"Consulte todos los embozos realizados",
       button:"Iniciar"
     },
     {
