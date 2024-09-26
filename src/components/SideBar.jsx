@@ -72,8 +72,8 @@ export default function Sidebar() {
     <>
       <motion.Card
         className={`fixed overflow-scroll w-full md:overflow-y-auto md:fixed md:h-[calc(100%)]  sm:rounded-none  md:max-w-[220px] lg:max-w-[280px] z-30 shadow  shadow-white-900/5 transition-all   bg-background md:translate-x-0 `}
-        initial={{opacity: 0}}
-        animate={{ opacity: 100 }}
+        initial={{opacity: 100}}
+        animate={{ opacity: 0 }}
       transition={{ ease: [0.17, 0.67, 0.83, 0.67] }}
       >
         <div className={`flex justify-around items-center flex-row-reverse`} >
