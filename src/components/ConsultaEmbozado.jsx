@@ -11,8 +11,8 @@ function ConsultaEmbozado() {
         },
         {
             id:"2",
-            name:"Consul/tas",
-            path:"/consultas"
+            name:"Consultas",
+            path:"/embozado/consultas"
         }
     ]
 

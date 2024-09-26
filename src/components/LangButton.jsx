@@ -10,7 +10,7 @@ const LangButton =  () => {
       }
 
     return (
-      <div className="relative w-40 max-w-full mx-auto mt-2">
+      <div className="w-24">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="absolute top-0 bottom-0 w-5 h-5 my-auto text-gray-400 right-3"
@@ -23,9 +23,9 @@ const LangButton =  () => {
             clipRule="evenodd"
           />
         </svg>
-        <select name="lang"  onChange={handleChangeLanguage} className="w-full px-3 py-2 text-sm text-gray-600 bg-white border rounded-lg shadow-sm outline-none appearance-none focus:ring-offset-2 focus:ring-indigo-600 focus:ring-2">
+        <select defaultValue={'en'} name="lang"  onChange={handleChangeLanguage} className="w-full px-3 py-2 text-sm text-gray-600 bg-white border rounded-lg shadow-sm outline-none appearance-none focus:ring-offset-2 focus:ring-indigo-600 focus:ring-2">
           <option  value={'en'}>{t('Ingles')}</option>
-          <option selected  value={'es'}>{t('Español')}</option>
+          <option  value={'es'}>{t('Español')}</option>
         </select>
       </div>
     );

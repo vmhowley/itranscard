@@ -32,6 +32,8 @@ import {
 } from "@/components/ui/table"
 import BreadCrumb from "@/components/BreadCrumb"
 import {motion} from "framer-motion"
+import { useTranslation } from "react-i18next"
+
 export const description =
   "An application shell with a header and main content area. The header has a navbar, a search input and and a user nav dropdown. The user nav is toggled by a button with an avatar image. The main content area is divided into two rows. The first row has a grid of cards with statistics. The second row has a grid of cards with a table of recent transactions and a list of recent sales."
 
@@ -42,7 +44,8 @@ export const description =
         name:"",
     },
 ]
-  return (
+const { t } = useTranslation()
+return (
     <>
     <BreadCrumb crumbsData={crumbsData}/>
     <motion.div 
@@ -55,52 +58,52 @@ export const description =
           <Card x-chunk="dashboard-01-chunk-0">
             <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
               <CardTitle className="text-sm font-medium">
-                Total Revenue
+                {t('Ingresos Totales')}
               </CardTitle>
               <DollarSign className="w-4 h-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">$45,231.89</div>
               <p className="text-xs text-muted-foreground">
-                +20.1% from last month
+                +20.1% {t('Desde el ultimo mes')}
               </p>
             </CardContent>
           </Card>
           <Card x-chunk="dashboard-01-chunk-1">
             <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-              <CardTitle className="text-sm font-medium">
-                Subscriptions
+              <CardTitle className="text-sm font-medium transition-all opacity-100 duration-1000 delay-1000">
+                {t('Suscripciones')}
               </CardTitle>
               <Users className="w-4 h-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">+2350</div>
               <p className="text-xs text-muted-foreground">
-                +180.1% from last month
+                +180.1% {t('Desde el ultimo mes')}
               </p>
             </CardContent>
           </Card>
           <Card x-chunk="dashboard-01-chunk-2">
             <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-              <CardTitle className="text-sm font-medium">Sales</CardTitle>
+              <CardTitle className="text-sm font-medium">{t('Ventas')}</CardTitle>
               <CreditCard className="w-4 h-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">+12,234</div>
               <p className="text-xs text-muted-foreground">
-                +19% from last month
+                +19% {t('Desde el ultimo mes')}
               </p>
             </CardContent>
           </Card>
           <Card x-chunk="dashboard-01-chunk-3">
             <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-              <CardTitle className="text-sm font-medium">Active Now</CardTitle>
+              <CardTitle className="text-sm font-medium">{t('Activos Ahora')}</CardTitle>
               <Activity className="w-4 h-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">+573</div>
               <p className="text-xs text-muted-foreground">
-                +201 since last hour
+                +201 {t('desde las ultimas horas')}
               </p>
             </CardContent>
           </Card>
@@ -111,9 +114,9 @@ export const description =
             >
             <CardHeader className="flex flex-row items-center">
               <div className="grid gap-2">
-                <CardTitle>Transactions</CardTitle>
+                <CardTitle>{t('Transacciones')}</CardTitle>
                 <CardDescription>
-                  Recent transactions from your store.
+                  {t('Transacciones recientes de su tienda')}
                 </CardDescription>
               </div>
               <Button asChild size="sm" className="gap-1 ml-auto">

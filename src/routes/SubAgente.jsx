@@ -71,13 +71,14 @@ function SubAgente() {
   
 
   return (
+    <>
+    <BreadCrumb crumbsData={crumbsData} />
     <motion.div
       className='w-screen'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-    >
-      <BreadCrumb crumbsData={crumbsData} />
+      >
       <div className='flex gap-8 sm:grid sm:justify-center sm:gap-20 '>
         <div className='sm:justify-center sm:grid sm:w-full'>
           <div className='pb-6 text-xl font-bold md:text-center text-muted-foreground'>
@@ -95,6 +96,7 @@ function SubAgente() {
         </div>
       </div>
     </motion.div>
+      </>
   )
 }
 

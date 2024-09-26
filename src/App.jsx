@@ -21,7 +21,6 @@ function App() {
   const { t } = useTranslation()
   return ( 
     <Router>
-      <AnimatePresence>
         <AuthProvider>
           <SideBar />
           <div className='relative inset-0 flex justify-center gap-3 pt-36 overflow-auto   md:ml-72 '>
@@ -46,7 +45,6 @@ function App() {
           </div>
                   <Banner/>
         </AuthProvider>
-      </AnimatePresence>
     </Router>
   )
 }

@@ -44,7 +44,7 @@ import { useTranslation } from 'react-i18next'
 import logo from '../assets/logo.png'
 import { AccordionDetails } from '@mui/material'
 import LangButton from './LangButton'
-
+import { motion } from 'framer-motion'
 export default function Sidebar() {
 
   const { t, i18next } = useTranslation();
@@ -70,8 +70,11 @@ export default function Sidebar() {
 
   return (
     <>
-      <Card
+      <motion.Card
         className={`fixed overflow-scroll w-full md:overflow-y-auto md:fixed md:h-[calc(100%)]  sm:rounded-none  md:max-w-[220px] lg:max-w-[280px] z-30 shadow  shadow-white-900/5 transition-all   bg-background md:translate-x-0 `}
+        initial={{opacity: 0}}
+        animate={{ opacity: 100 }}
+      transition={{ ease: [0.17, 0.67, 0.83, 0.67] }}
       >
         <div className={`flex justify-around items-center flex-row-reverse`} >
 
@@ -96,9 +99,7 @@ export default function Sidebar() {
         </div>
             </div>
         
-        <div className='flex justify-center'>
-          <LangButton/>
-        </div>
+
         <div
           className={` transition-all ease-in-out duration-300  ${
             navOpen
@@ -326,11 +327,11 @@ export default function Sidebar() {
           </Typography>
         </div>
       </Alert> */}
-      </Card>
+      </motion.Card>
       <div className='fixed  z-20 bg-background justify-between hidden w-full p-1 font-semibold h-16 shadow-sm sm:flex text-foreground'>
-
+        <div className='  fixed right-16 items-center font-semibold h-16 shadow-sm sm:flex text-foreground'>
+        <LangButton/>
         <div onClick={handleMenu}  className='fixed flex items-center p-1 border border-red-700/20 rounded-full cursor-pointer right-3'>
-        
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
@@ -359,6 +360,7 @@ export default function Sidebar() {
             </DropdownMenuContent>
           </DropdownMenu>
           
+        </div>
         </div>
       </div>
     </>
