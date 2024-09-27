@@ -127,7 +127,6 @@ export default function Sidebar() {
             >
               <Link to={'/'}>
                 <ListItem
-                  onClick={handleNav}
                   className='text-sm font-semibold text-muted-foreground '
                 >
                   <ListItemPrefix>
@@ -329,7 +328,7 @@ export default function Sidebar() {
       </Alert> */}
       </motion.Card>
       <div className='fixed  z-20 bg-background justify-between hidden w-full p-1 font-semibold h-16 shadow-sm sm:flex text-foreground'>
-        <div className='  fixed right-16 items-center font-semibold h-16 shadow-sm sm:flex text-foreground'>
+        <div className='fixed right-16 items-center font-semibold h-16 shadow-sm sm:flex text-foreground p-1'>
         <LangButton/>
         <div onClick={handleMenu}  className='fixed flex items-center p-1 border border-red-700/20 rounded-full cursor-pointer right-3'>
         <DropdownMenu>
