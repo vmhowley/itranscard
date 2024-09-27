@@ -45,6 +45,7 @@ import logo from '../assets/logo.png'
 import { AccordionDetails } from '@mui/material'
 import LangButton from './LangButton'
 import { motion } from 'framer-motion'
+import ThemeButton from './ThemeButton'
 export default function Sidebar() {
 
   const { t, i18next } = useTranslation();
@@ -53,9 +54,12 @@ export default function Sidebar() {
   const [navOpen, setNavOpen] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [openAlert, setOpenAlert] = useState(true)
+  const [scrollTop, setScrollTop] = useState(0);
 
-
- 
+  
+  const handleScroll = event => {
+    setScrollTop(window.scrollY);
+  };
   const handleMenu = () => {
     setMenuOpen(!menuOpen)
   }
@@ -65,7 +69,8 @@ export default function Sidebar() {
   const handleNav = () => {
     setNavOpen(!navOpen)
   }
-
+  
+  window.addEventListener('scroll', handleScroll);    console.log(scrollY);
 
 
   return (
@@ -327,9 +332,11 @@ export default function Sidebar() {
         </div>
       </Alert> */}
       </motion.Card>
-      <div className='fixed  z-20 bg-background justify-between hidden w-full p-1 font-semibold h-16 shadow-sm sm:flex text-foreground'>
-        <div className='fixed right-16 items-center font-semibold h-16 shadow-sm sm:flex text-foreground p-1'>
-        <LangButton/>
+      <div className={`fixed z-20 bg-background justify-between hidden w-full p-1 font-semibold ${scrollY >= 100 ? 'h-10' : 'h-16'} shadow-sm sm:flex text-foreground`}>
+        <div className='fixed right-16 items-center font-semibold h-16 shadow-sm sm:flex text-foreground p-1 gap-3'>
+        <ThemeButton/>
+        <LangButton className=""/>
+
         <div onClick={handleMenu}  className='fixed flex items-center p-1 border border-red-700/20 rounded-full cursor-pointer right-3'>
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -340,8 +347,8 @@ export default function Sidebar() {
               >
                 <img
                   src="https://ai-avatar-generator.com/avatars/1930.jpg"
-                  width={36}
-                  height={36}
+                  width={scrollY >= 100  ? '30' :'36'}
+                  height={scrollY >= 100  ? '30' :'36'}
                   alt="Avatar"
                   className="overflow-hidden rounded-full"
                 />

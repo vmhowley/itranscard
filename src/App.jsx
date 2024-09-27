@@ -23,7 +23,7 @@ function App() {
     <Router>
         <AuthProvider>
           <SideBar />
-          <div className='relative inset-0 flex justify-center gap-3 pt-36 overflow-auto   md:ml-72 '>
+          <div id='root' className='relative inset-0 flex justify-center gap-3 pt-36 overflow-auto   md:ml-72 '>
             <Routes>
               <Route path='/login' element={<Login />} />
               {/* ----------------------------==Rutas privadas==---------------------------------- */}
