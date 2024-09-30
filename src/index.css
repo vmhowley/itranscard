@@ -93,3 +93,9 @@
 ::-webkit-scrollbar-thumb:hover {
 @apply bg-background
 }
+
+body{
+  @apply transition-all ease-in-out  delay-100;
+
+
+}

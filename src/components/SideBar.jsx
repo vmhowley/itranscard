@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import {
-  Card,
   Typography,
   List,
   ListItem,
@@ -26,7 +25,7 @@ import {
   Bars3BottomLeftIcon,
   HomeModernIcon,
   XMarkIcon,
-  CubeTransparentIcon,
+  GlobeAltIcon,
 
 } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
@@ -40,15 +39,13 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
 import { useTranslation } from 'react-i18next'
-
 import logo from '../assets/logo.png'
-import { AccordionDetails } from '@mui/material'
 import LangButton from './LangButton'
 import { motion } from 'framer-motion'
 import ThemeButton from './ThemeButton'
 export default function Sidebar() {
 
-  const { t, i18next } = useTranslation();
+  const { t } = useTranslation();
 
   const [open, setOpen] = useState(true)
   const [navOpen, setNavOpen] = useState(false)
@@ -74,8 +71,10 @@ export default function Sidebar() {
 
 
   return (
+    <div >
+    {location.pathname != '/' ?  
     <>
-      <motion.Card
+          <motion.Card
         className={`fixed overflow-scroll w-full md:overflow-y-auto md:fixed md:h-[calc(100%)]  sm:rounded-none  md:max-w-[220px] lg:max-w-[280px] z-30 shadow  shadow-white-900/5 transition-all   bg-background md:translate-x-0 `}
         initial={{opacity: 100}}
         animate={{ opacity: 0 }}
@@ -87,7 +86,7 @@ export default function Sidebar() {
           className={` justify-center w-12 h-12   p-2  md:relative md:hidden   `}
           onClick={handleNav}
           >
-            {navOpen ?  <XMarkIcon className={`duration-1000 transition-all ease-in-out delay-200 ${navOpen ? "visible opacity-100 ":"invisible opacity-0  "}`}/> : <Bars3BottomLeftIcon className={`delay-500 duration-500 transition-all ease-in-out ${navOpen ? "opacity-0 invisible" :"opacity-100 visible"}`}/>}
+            {navOpen ? <XMarkIcon className={`duration-1000 transition-all ease-in-out delay-200 ${navOpen ? "visible opacity-100 ":"invisible opacity-0  "}`}/> : <Bars3BottomLeftIcon className={`delay-500 duration-500 transition-all ease-in-out ${navOpen ? "opacity-0 invisible" :"opacity-100 visible"}`}/>}
         </button>
         
         <div className={`flex gap-4 p-4 pb-5 mb-2`}>
@@ -108,7 +107,7 @@ export default function Sidebar() {
         <div
           className={` transition-all ease-in-out duration-300  ${
             navOpen
-              ? '   opacity-100  h-screen'
+              ? '   opacity-100  '
               : 'opacity-0 h-0 -translate-x-96  md:opacity-100 md:translate-x-0'
           }`}
         >
@@ -130,14 +129,14 @@ export default function Sidebar() {
                 />
               }
             >
-              <Link to={'/'}>
+              <Link to={'/dashboard'}>
                 <ListItem
                   className='text-sm font-semibold text-muted-foreground '
                 >
                   <ListItemPrefix>
                     <HomeModernIcon className='w-5 h-5 text-primary' />
                   </ListItemPrefix>
-                  {t('Inicio')}
+                  {t('Escritorio')}
                 </ListItem>
               </Link>
               <ListItem  className='p-0 ' selected={open === 1}>
@@ -332,10 +331,10 @@ export default function Sidebar() {
         </div>
       </Alert> */}
       </motion.Card>
-      <div className={`fixed z-20 bg-background justify-between hidden w-full p-1 font-semibold ${scrollY >= 100 ? 'h-10' : 'h-16'} shadow-sm sm:flex text-foreground`}>
-        <div className='fixed right-16 items-center font-semibold h-16 shadow-sm sm:flex text-foreground p-1 gap-3'>
+      <div className={`shadow w-full bg-background h-14 fixed z-20 transition-all duration-300 delay-100 ${scrollY >= 100 ? '-translate-y-5' : '-translate-x-0'} `}>
+        <div className='fixed right-16 items-center font-semibold   sm:flex text-foreground p-1 gap-3'>
         <ThemeButton/>
-        <LangButton className=""/>
+        <LangButton />
 
         <div onClick={handleMenu}  className='fixed flex items-center p-1 border border-red-700/20 rounded-full cursor-pointer right-3'>
         <DropdownMenu>
@@ -370,5 +369,7 @@ export default function Sidebar() {
         </div>
       </div>
     </>
+   :''  }
+  </div>
   )
 }

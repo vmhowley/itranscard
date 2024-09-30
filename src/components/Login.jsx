@@ -29,7 +29,7 @@ const Login = () => {
   };
     
     return (
-        <div className="fixed inset-0 z-50 bg-white">
+        <div className="fixed inset-0 z-50 bg-background">
             <main className="flex flex-col items-center justify-center w-full h-screen px-4">
             <div className="w-full max-w-sm space-y-8 text-gray-600">
                 <div className="text-center">
@@ -48,8 +48,18 @@ const Login = () => {
                         </label>
                         <input
                             onChange={handleInput}
-                            name="user"
+                            name="username"
                             type="text"
+                            required
+                            className="w-full px-3 py-2 mt-2 text-gray-500 bg-transparent border rounded-lg shadow-sm outline-none focus:border-indigo-600"
+                        />
+                        <label className="font-medium">
+                            Password
+                        </label>
+                        <input
+                            onChange={handleInput}
+                            name="password"
+                            type="password"
                             required
                             className="w-full px-3 py-2 mt-2 text-gray-500 bg-transparent border rounded-lg shadow-sm outline-none focus:border-indigo-600"
                         />
