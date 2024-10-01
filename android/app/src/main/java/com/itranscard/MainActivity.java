@@ -1,4 +1,4 @@
-package com.ibsystemsitc.app;
+package com.itranscard;
 
 import com.getcapacitor.BridgeActivity;
 

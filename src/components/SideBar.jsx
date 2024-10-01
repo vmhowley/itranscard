@@ -87,7 +87,7 @@ export default function Sidebar() {
           >
             {navOpen ? <XMarkIcon className={` transition-all   ${navOpen ? "visible opacity-100 ":"invisible opacity-0  "}`}/> : <Bars3BottomLeftIcon className={` transition-all ease-in-out ${navOpen ? "opacity-0 invisible" :"opacity-100 visible"}`}/>}
         </button>
-        <div className='flex gap-2 sm:hidden  h-max '>
+        <div className='flex gap-2 sm:hidden  h-max  '>
         <ThemeButton/>
         <LangButton />
         </div>

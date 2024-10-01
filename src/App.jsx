@@ -16,7 +16,6 @@ import SubAgente from './routes/SubAgente'
 import Banner from './components/Banner'
 import { useTranslation } from 'react-i18next'
 import Home from './routes/Home'
-import GeolocationPage from './GeolocationPage'
 
 function App() {
   const { t } = useTranslation()
@@ -38,7 +37,6 @@ function App() {
               <Route path='/mod_lealtad' element={<Lealtad />} />
               <Route path='/embozado' element={<Embozado />} />
               <Route path='/subagente' element={<SubAgente />} />
-              <Route path='/geo' element={<GeolocationPage />} />
               <Route
                 path='/embozado/consultas'
                 element={<ConsultaEmbozado />}

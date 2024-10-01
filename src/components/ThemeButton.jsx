@@ -21,7 +21,7 @@ function ThemeButton() {
 
         }
     return (
-        <div role="radiogroup" className={`theme-switcher  flex gap-4 p-2 w-6 h-6 sm:h-max sm:w-max justify-center border rounded-full items-center ${theme === 'dark' ? 'text-yellow-500 bg-yellow-300/10':'text-blue-800 bg-blue-300/10'}`}>
+        <div role="radiogroup" className={`theme-switcher  flex gap-4 p-2  sm:h-max sm:w-max justify-center  rounded-full items-center ${theme === 'dark' ? 'text-yellow-500 ':'text-blue-800 '}`}>
         {theme === 'dark' ? 
         <button
         name='light'
@@ -35,7 +35,7 @@ function ThemeButton() {
         aria-checked="false"
         >
           <svg
-            style={{ color: "currentcolor", width: 16, height: 16 }}
+            style={{ color: "currentcolor", width: 17, height: 17 }}
             width={24}
             viewBox="0 0 24 24"
             strokeWidth="1.5"

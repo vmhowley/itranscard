@@ -16,7 +16,7 @@ const LangButton =  () => {
 
       return (
         <>
-        <button className="w-6 sm:w-8"  onClick={handleOpen}>
+        <button className="w-6 sm:w-6"  onClick={handleOpen}>
         <GlobeAltIcon />
         <div className={`fixed  grid right-2 mt-4 bg-background shadow w-20 z-50 border  divide-y h-16 transition-all duration-300 ${open ? 'visible opacity-100 -translate-y-1':'invisible opacity-0 -translate-y-12 scale-50'}`}>
           <button onClick={handleChangeLanguage} value={'en'}>Ingles</button>
