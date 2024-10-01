@@ -95,7 +95,7 @@
 }
 
 body{
-  @apply transition-all ease-in-out  delay-100;
+  @apply transition-all ease-in-out !duration-300  ;
 
 
 }

@@ -4,34 +4,35 @@ function ThemeButton() {
     const [theme, setTheme] = useState(localStorage.getItem('theme'))
     
         const handleTheme = (e) =>{
-            if (e.currentTarget.name === 'light') {
-                setTheme(e.currentTarget.name)
-                document.documentElement.classList.remove('dark')
-                localStorage.setItem('theme', e.currentTarget.name)
+          console.log(theme)
+
+            if (theme === 'dark'){
+              setTheme('light')
+              localStorage.setItem('theme','light')
+              document.documentElement.classList.remove('dark')
 
             }else{
-                setTheme(e.currentTarget.name)
-                document.documentElement.classList.add(e.currentTarget.name)
-                localStorage.setItem('theme', e.currentTarget.name)
-
+              if (theme === 'light'){
+                setTheme('dark')
+                localStorage.setItem('theme','dark')
+                document.documentElement.classList.add('dark')
+              } 
             }
 
         }
     return (
-        <div role="radiogroup" className="theme-switcher flex gap-4 p-2 border rounded-full items-center">
-            <div className={`h-7 w-7 z-10  rounded-full bg-foreground/40 absolute -translate-x-1 justify-center items-center content-center transition-all duration-500 ${theme === 'system' ? 'translate-x-7' :  theme === 'dark' ? 'translate-x-14':''}`}>
-            </div>
-
+        <div role="radiogroup" className={`theme-switcher  flex gap-4 p-2 w-6 h-6 sm:h-max sm:w-max justify-center border rounded-full items-center ${theme === 'dark' ? 'text-yellow-500 bg-yellow-300/10':'text-blue-800 bg-blue-300/10'}`}>
+        {theme === 'dark' ? 
         <button
         name='light'
         onClick={handleTheme}
         type="button"
-          role="radio"
-          data-theme-switcher="true"
-          data-active="false"
-          className="theme-switcher_switch z-20"
-          aria-label="Switch to light theme"
-          aria-checked="false"
+        role="radio"
+        data-theme-switcher="true"
+        data-active="false"
+        className="theme-switcher_switch z-20"
+        aria-label="Switch to light theme"
+        aria-checked="false"
         >
           <svg
             style={{ color: "currentcolor", width: 16, height: 16 }}
@@ -58,64 +59,34 @@ function ThemeButton() {
             <path d="M18.36 5.64l1.42-1.42" />
           </svg>
         </button>
-        <button
-        name='system'
-        onClick={handleTheme}
-          type="button"
-          role="radio"
-          data-theme-switcher="true"
-          data-active="false"
-          className="theme-switcher_switch"
-          aria-label="Switch to system theme"
-          aria-checked="false"
-          >
-          <svg
-            style={{ color: "currentcolor", width: 16, height: 16 }}
-            width={24}
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            strokeLinejoin="round"
-            strokeLinecap="round"
-            stroke="currentColor"
-            shapeRendering="geometricPrecision"
-            height={24}
-            fill="none"
-            data-testid="geist-icon"
-            className="icon"
-            >
-            <rect ry={2} rx={2} height={14} width={20} y={3} x={2} />
-            <path d="M8 21h8" />
-            <path d="M12 17v4" />
-          </svg>
-        </button>
-        <button
-        name='dark'
-        onClick={handleTheme}
-        type="button"
-        role="radio"
-        data-theme-switcher="true"
-        data-active="true"
-        className="theme-switcher_switch"
-        aria-label="Switch to dark theme"
-        aria-checked="true"
-        >
-          <svg
-            style={{ color: "currentcolor", width: 16, height: 16 }}
-            width={24}
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            strokeLinejoin="round"
-            strokeLinecap="round"
-            stroke="currentColor"
-            shapeRendering="geometricPrecision"
-            height={24}
-            fill="none"
-            data-testid="geist-icon"
-            className="icon"
-          >
-            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
-          </svg>
-        </button>
+    :<button
+    name='dark'
+    onClick={handleTheme}
+    type="button"
+    role="radio"
+    data-theme-switcher="true"
+    data-active="true"
+    className="theme-switcher_switch"
+    aria-label="Switch to dark theme"
+    aria-checked="true"
+    >
+      <svg
+        style={{ color: "currentcolor", width: 16, height: 16 }}
+        width={24}
+        viewBox="0 0 24 24"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+        strokeLinecap="round"
+        stroke="currentColor"
+        shapeRendering="geometricPrecision"
+        height={24}
+        fill="none"
+        data-testid="geist-icon"
+        className="icon"
+      >
+        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+      </svg>
+    </button>}
       </div>
       
     )

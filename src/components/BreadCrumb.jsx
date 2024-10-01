@@ -13,7 +13,7 @@ function BreadCrumb({crumbsData}) {
   const handleScroll = event => {
     setScrollTop(window.scrollY);
   };
-  window.addEventListener('scroll', handleScroll);    console.log(scrollY);
+  window.addEventListener('scroll', handleScroll);    
 
   return (
     <Breadcrumb className={`fixed z-50  pb-6 left-80 top-6 hidden md:flex duration-300 delay-100 ${scrollY >= 10 ? '-translate-y-5': 'md:flex' }`}>

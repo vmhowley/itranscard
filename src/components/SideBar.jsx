@@ -74,38 +74,41 @@ export default function Sidebar() {
     <div >
     {location.pathname != '/' ?  
     <>
-          <motion.Card
-        className={`fixed overflow-scroll w-full md:overflow-y-auto md:fixed md:h-[calc(100%)]  sm:rounded-none  md:max-w-[220px] lg:max-w-[280px] z-30 shadow  shadow-white-900/5 transition-all   bg-background md:translate-x-0 `}
-        initial={{opacity: 100}}
-        animate={{ opacity: 0 }}
-      transition={{ ease: [0.17, 0.67, 0.83, 0.67] }}
+          <div
+        className={`fixed overflow-scroll w-full md:overflow-y-auto md:fixed md:h-[calc(100%)]  sm:rounded-none  md:max-w-[220px] lg:max-w-[280px] z-30 shadow  shadow-white-900/5 transition-all   bg-background duration-75 md:translate-x-0 `}
       >
-        <div className={`flex justify-around items-center flex-row-reverse`} >
+        
+        <div className={`flex sm:justify-center pl-6 sm:p-0 justify-between items-center  flex-row-reverse`} >
+<div className='flex flex-row-reverse items-center'>
 
         <button
           className={` justify-center w-12 h-12   p-2  md:relative md:hidden   `}
           onClick={handleNav}
           >
-            {navOpen ? <XMarkIcon className={`duration-1000 transition-all ease-in-out delay-200 ${navOpen ? "visible opacity-100 ":"invisible opacity-0  "}`}/> : <Bars3BottomLeftIcon className={`delay-500 duration-500 transition-all ease-in-out ${navOpen ? "opacity-0 invisible" :"opacity-100 visible"}`}/>}
+            {navOpen ? <XMarkIcon className={` transition-all   ${navOpen ? "visible opacity-100 ":"invisible opacity-0  "}`}/> : <Bars3BottomLeftIcon className={` transition-all ease-in-out ${navOpen ? "opacity-0 invisible" :"opacity-100 visible"}`}/>}
         </button>
-        
-        <div className={`flex gap-4 p-4 pb-5 mb-2`}>
+        <div className='flex gap-2 sm:hidden  h-max '>
+        <ThemeButton/>
+        <LangButton />
+        </div>
+            </div>
+        <div className={`flex gap-4 sm:pb-4 sm:pt-4 mb-2`}>
           <img
             src='https://ibsystems.com.do/assets/images/logo-light.png'
             alt='brand'
-            className='w-64 dark:hidden block'
+            className='w-40 sm:w-56 dark:hidden block'
             />
           <img
             src={logo}
             alt='brand'
-            className='w-64 hidden dark:block'
+            className='w-40 sm:w-56 hidden dark:block'
             />
         </div>
             </div>
         
 
         <div
-          className={` transition-all ease-in-out duration-300  ${
+          className={` transition-all ease-in-out duration-300   ${
             navOpen
               ? '   opacity-100  '
               : 'opacity-0 h-0 -translate-x-96  md:opacity-100 md:translate-x-0'
@@ -306,6 +309,7 @@ export default function Sidebar() {
             </ListItem>
             </div>
           </List>
+     
         </div>
           {/* <Alert open={openAlert} className="mt-auto" onClose={() => setOpenAlert(false)}>
         <CubeTransparentIcon className="mb-4 h-12 w-12" />
@@ -330,13 +334,15 @@ export default function Sidebar() {
           </Typography>
         </div>
       </Alert> */}
-      </motion.Card>
-      <div className={`shadow w-full bg-background h-14 fixed z-20 transition-all duration-300 delay-100 ${scrollY >= 100 ? '-translate-y-5' : '-translate-x-0'} `}>
-        <div className='fixed right-16 items-center font-semibold   sm:flex text-foreground p-1 gap-3'>
-        <ThemeButton/>
+      </div>
+      <div className={`shadow hidden md:block w-full bg-background h-14 fixed z-20 transition-all duration-300 delay-100 ${scrollY >= 100 ? '-translate-y-4' : '-translate-x-0'} `}>
+        <div className={`fixed  right-2 items-center justify-center font-semibold   sm:flex text-foreground p-2 transition-all duration-300 delay-100 gap-2 ${scrollY >= 100 ? 'translate-y-2 ' : '-translate-x-0'} `}>
+        <div className='flex gap-2  '>
+          <ThemeButton/>
         <LangButton />
+          </div>
+        <div onClick={handleMenu}  className={` flex items-center border border-red-700/20 rounded-full cursor-pointer right-3 ${scrollY >= 10 ? 'p-0  ':'p-1'} `}>
 
-        <div onClick={handleMenu}  className='fixed flex items-center p-1 border border-red-700/20 rounded-full cursor-pointer right-3'>
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
