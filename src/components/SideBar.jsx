@@ -67,7 +67,7 @@ export default function Sidebar() {
     setNavOpen(!navOpen)
   }
   
-  window.addEventListener('scroll', handleScroll);    console.log(scrollY);
+  window.addEventListener('scroll', handleScroll);
 
 
   return (

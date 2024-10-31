@@ -1,3 +1,4 @@
+import React from "react"
 import {Link} from "react-router-dom"
 import {
   Activity,
@@ -33,6 +34,7 @@ import {
 import BreadCrumb from "@/components/BreadCrumb"
 import {motion} from "framer-motion"
 import { useTranslation } from "react-i18next"
+import { useEffect } from "react"
 
 export const description =
   "An application shell with a header and main content area. The header has a navbar, a search input and and a user nav dropdown. The user nav is toggled by a button with an avatar image. The main content area is divided into two rows. The first row has a grid of cards with statistics. The second row has a grid of cards with a table of recent transactions and a list of recent sales."
@@ -45,6 +47,26 @@ export const description =
     },
 ]
 const { t } = useTranslation()
+
+
+useEffect(()=>{
+  const handleDashboard = async ()=>{
+    const url = "http://192.168.1.220:8080/rest/test/";
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+      const json = await response.json();
+      console.log(json)
+
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+handleDashboard()
+},[])
+
 return (
     <>
     <BreadCrumb crumbsData={crumbsData}/>

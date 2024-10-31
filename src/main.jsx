@@ -6,9 +6,7 @@ import './i18n'
 import { AnimatePresence } from 'framer-motion'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
     <AnimatePresence>
       <App />
     </AnimatePresence>
-  </StrictMode>
 )

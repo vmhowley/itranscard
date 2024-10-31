@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -16,30 +16,29 @@ function BreadCrumb({crumbsData}) {
   window.addEventListener('scroll', handleScroll);    
 
   return (
+    <React.StrictMode>
     <Breadcrumb className={`fixed z-50  pb-6 left-80 top-6 hidden md:flex duration-300 delay-100 ${scrollY >= 10 ? '-translate-y-5': 'md:flex' }`}>
       <BreadcrumbList >
-      <BreadcrumbItem>
       <BreadcrumbItem>
           <BreadcrumbLink className='capitalize' asChild>
             <HomeIcon className='w-4'/>
           </BreadcrumbLink>
         </BreadcrumbItem>
           <BreadcrumbSeparator />
-        </BreadcrumbItem>
       {crumbsData.map((data)=>
-       
-       <BreadcrumbItem  key={data.id} >
-          <BreadcrumbLink className='capitalize' >
+      <div className='flex items-center content-center' key={data.id}>
+       <BreadcrumbItem   >
             {data.name}
+            <BreadcrumbLink className='capitalize' >
           </BreadcrumbLink>
-      
-          <BreadcrumbSeparator className={`${!data.name ? 'hidden':'block'}`}/>
         </BreadcrumbItem>
-      
+          <BreadcrumbSeparator className={`${!data.name ? 'hidden':'block'}`}/>
+      </div>
     )}
 
       </BreadcrumbList>
     </Breadcrumb>
+    </React.StrictMode>
   )
 }
 export default BreadCrumb
